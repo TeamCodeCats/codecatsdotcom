@@ -1,0 +1,26 @@
+{
+  "name": "codecatsdotcom",
+  "version": "1.0.0",
+  "description": "Project #2 from Berkeley Coding Camp",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamCodeCats/codecatsdotcom.git"
+  },
+  "author": "Joe Faulstick, Danish Akhtar, Alyna Takechi, Leon Moraga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamCodeCats/codecatsdotcom/issues"
+  },
+  "homepage": "https://github.com/TeamCodeCats/codecatsdotcom#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.33.4"
+  }
+}
