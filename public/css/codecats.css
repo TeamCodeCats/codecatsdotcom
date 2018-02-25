@@ -1,0 +1,21 @@
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+body {
+    background-color: #F4F9F2;
+}
+
+.navbar-inverse {
+    background-color: #1C1C1C;
+    border-color: rgb(153, 60, 54);
+}
+
+#logo-img {
+    height: 80px;
+    position: absolute;
+    top: 0px;
+    float: left;
+}
