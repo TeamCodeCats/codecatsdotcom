@@ -1,0 +1,208 @@
+<nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="/img/cat1.jpg" alt="brand" id="logo-img">
+      </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-collapse-main">
+
+        <ul class="nav navbar-nav hidden-xs">
+          <li class="active">
+            <a href="/index">Home</a>
+          </li>
+          <li>
+            <a href="/profile">Profile</a>
+          </li>
+          <li>
+            <a data-toggle="modal" href="#msgModal">Messages</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+          <li >
+            <a class="app-notifications" href="/index">
+              <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li>
+            <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
+              <img class="img-circle" src="http://via.placeholder.com/35x35">
+            </button>
+          </li>
+        </ul>
+
+        <form class="navbar-form navbar-right app-search" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" data-action="grow" placeholder="Search">
+          </div>
+        </form>
+
+        <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile/index.html">Profile</a></li>
+          <li><a href="notifications/index.html">Notifications</a></li>
+          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
+          <li><a href="docs/index.html">Docs</a></li>
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav hidden">
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="container p-t-md">
+  <div class="col-md-3">
+    <div class="panel panel-default panel-profile m-b-md">
+      <div class="panel-heading" id="profile-bg"></div>
+      <div class="panel-body text-center">
+        <a href="/profile/:"{{id}}>
+          <img class="panel-profile-img" src="http://via.placeholder.com/94x94">
+        </a>
+        <h5 class="panel-title">
+          <a class="text-inherit" href="/profile/:"{{id}}>John Doe</a>
+        </h5>
+        <p class="m-b-md">Placeholder texty blurb from John Doe.</p>
+        <ul class="panel-menu">
+          <li class="panel-menu-item">
+            <a href="#userModal" class="text-inherit" data-toggle="modal">
+              Posts
+              <h5 class="m-y-0">87</h5>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel-default visible-md-block visible-lg-block">
+      <div class="panel-body">
+        <h5 class="m-t-0">About <small>· <a href="#">Edit</a></small></h5>
+        <ul class="list-unstyled list-spaced">
+          <li><span class="text-muted icon icon-users m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
+          <li><span class="text-muted icon icon-github m-r"></span>Works at <a href="#">Github</a>
+          <li><span class="text-muted icon icon-home m-r"></span>Lives in <a href="#">San Francisco, CA</a>
+          <li><span class="text-muted icon icon-location-pin m-r"></span>From <a href="#">Boston, MA</a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel-default visible-md-block visible-lg-block">
+      <div class="panel-body">
+        <h5 class="m-t-0">Photos <small>· <a href="#">Edit</a></small></h5>
+        <div data-grid="images" data-target-height="150">
+          <div class="row photo-row">
+            <div class="photo-grid">
+              <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+            </div>
+
+            <div class="photo-grid">
+              <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+            </div>
+          </div>
+          
+
+          <div class="photo-grid">
+            <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+    <ul class="list-group media-list media-list-stream">
+
+      <li class="media list-group-item p-a">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Message">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default">
+              <span class="icon icon-camera"></span>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <li class="media list-group-item p-a">
+        <a class="media-left" href="#">
+          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+        </a>
+        <div class="media-body">
+          <div class="media-heading">
+            <small class="pull-right text-muted">4 min</small>
+            <h5>John Doe</h5>
+          </div>
+
+          <p>
+            Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </p>
+
+          <ul class="media-list m-b">
+            <li class="media">
+              <a class="media-left" href="#">
+                <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+              </a>
+              <div class="media-body">
+                <strong>Joe Faulstick: </strong>
+                Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
+              </div>
+            </li>
+            <li class="media">
+              <a class="media-left" href="#">
+                <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+              </a>
+              <div class="media-body">
+                <strong>Danish Akhtar: </strong>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default m-b-md hidden-xs">
+      <div class="panel-body">
+        <h5 class="m-t-0">Berkeley Coding Camp</h5>
+        <div data-grid="images" data-target-height="150">
+          <img class="media-object" data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/245x230">
+        </div>
+        <p><strong>UCB Belmont October 2017 Hybrid Cohort.</strong>
+        <div id="faculty-list">
+          <p>
+            <i>Instructor: </i><a href="#">Jayson Phillips</a><br>
+            <i>TA: </i><a href="#">Daniel Cuperman</a><br>
+            <i>TA: </i><a href="#">George Yoo</a><br>
+          </p>
+        </div> 
+        
+        <p>Here is a main info section where our calendar (or at least upcoming classes/events) will go, plus any other pertinant information. Button below for adding new events (study groups, etc.)</p>
+        <button class="btn btn-primary-outline btn-sm">Add an Event</button>
+      </div>
+    </div>
+  </div>
+</div>
