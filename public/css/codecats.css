@@ -19,6 +19,10 @@ body {
     border-color: rgb(153, 60, 54);
 }
 
+.navbar-brand {
+    width: 115px;
+}
+
 #login-section {
     text-align: center;
 }
@@ -28,4 +32,14 @@ body {
     position: absolute;
     top: 0px;
     float: left;
+}
+
+.photo-row {
+    margin: auto;
+}
+
+.photo-grid {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
 }
