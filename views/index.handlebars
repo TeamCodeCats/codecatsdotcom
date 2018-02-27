@@ -64,7 +64,7 @@
 
 <div class="container p-t-md">
   <div class="col-md-3">
-    <div class="panel panel-default panel-profile m-b-md">
+    <div class="panel panel-default panel-profile m-b-md" id="profile-box">
       <div class="panel-heading" id="profile-bg"></div>
       <div class="panel-body text-center">
         <a href="/profile/:"{{id}}>
@@ -73,7 +73,7 @@
         <h5 class="panel-title">
           <a class="text-inherit" href="/profile/:"{{id}}>John Doe</a>
         </h5>
-        <p class="m-b-md">Placeholder texty blurb from John Doe.</p>
+        <p class="m-b-md truncate-text">Placeholder texty blurb from John Doe. This part should truncate if it goes beyond a certain length, but be fully viewable in their profile view.</p>
         <ul class="panel-menu">
           <li class="panel-menu-item">
             <a href="#userModal" class="text-inherit" data-toggle="modal">
@@ -89,10 +89,10 @@
       <div class="panel-body">
         <h5 class="m-t-0">About <small>· <a href="#">Edit</a></small></h5>
         <ul class="list-unstyled list-spaced">
-          <li><span class="text-muted icon icon-users m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
-          <li><span class="text-muted icon icon-github m-r"></span>Works at <a href="#">Github</a>
-          <li><span class="text-muted icon icon-home m-r"></span>Lives in <a href="#">San Francisco, CA</a>
-          <li><span class="text-muted icon icon-location-pin m-r"></span>From <a href="#">Boston, MA</a>
+          <li><span class="text-muted glyphicon glyphicon-blackboard m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
+          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">Github</a>
+          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">San Francisco, CA</a>
+          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">Boston, MA</a>
         </ul>
       </div>
     </div>
@@ -191,12 +191,12 @@
         <div data-grid="images" data-target-height="150">
           <img class="media-object" data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/245x230">
         </div>
-        <p><strong>UCB Belmont October 2017 Hybrid Cohort.</strong>
+        <p><strong>UCB October 2017 Hybrid Cohort.</strong></p>
         <div id="faculty-list">
           <p>
-            <i>Instructor: </i><a href="#">Jayson Phillips</a><br>
-            <i>TA: </i><a href="#">Daniel Cuperman</a><br>
-            <i>TA: </i><a href="#">George Yoo</a><br>
+            <a href="#">Jayson Phillips </a><i> - Instructor</i><br>
+            <a href="#">Daniel Cuperman </a><i> - T.Assistant</i><br>
+            <a href="#">George Yoo </a><i> - T.Assistant</i><br>
           </p>
         </div> 
         
