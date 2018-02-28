@@ -4,9 +4,10 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
-const express = require('express');
-const methodOverride = require('method-override');
-const bodyParser = require('body-parser');
+var express = require('express');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
+var keys = require('./config/keys');
 
 // Sets up the Express App
 // =============================================================
@@ -25,7 +26,7 @@ app.use(express.static("public"));
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// parse application/json
+// Parse Application/JSON
 app.use(bodyParser.json());
 
 // Set Handlebars.
@@ -35,11 +36,13 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Passport Authentication Setup
+var passportSetup = require('./config/passport-setup');
 
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-//require("./routes/user-api-routes.js")(app);
+require("./routes/auth-routes.js")(app);
 
 
 // Syncing our sequelize models and then starting our Express app
