@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-//var router = require("express").Router();
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -15,9 +15,23 @@ module.exports = function(app) {
 	});
 
 	app.get("/index", function(req, res) {
-	    res.render("index");
+		console.log("Before the get attempt");
+		var query = {};
+        if (req.query.user_id) {
+          query.UserId = req.query.user_id;
+        }
+		db.Post.findAll({
+			where: query,
+			include: [db.User]
+			}).then(posts => {
+			var hbsObject = {
+				hbPosts: posts
+			}
+			// console.log(hbsObject);
+			console.log(hbsObject.hbPosts[0]);
+			res.render("index", hbsObject);		
+		});
 	});
-
 };
 
 

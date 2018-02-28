@@ -21,12 +21,16 @@ var db = require("./models");
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them
 require("./routes/html-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
 
 db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
