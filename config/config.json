@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Pooky101",
+    "password": null,
     "database": "codecats_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
