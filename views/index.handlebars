@@ -149,21 +149,46 @@
 
     <ul class="list-group media-list media-list-stream">
 
-      {{#each hbPosts}}
+      {{#each .}}`
+        {{!-- {{hbPosts}} --}}
         <li class="media list-group-item p-a">
-        <a class="media-left" href="#">
-          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
-        </a>
-        <div class="media-body">
-          <div class="media-heading">
-            <h5>{{User.firstName}} {{User.lastName}}</h5>
+          <a class="media-left" href="#">
+            <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+          </a>
+          <div class="media-body">
+            <div class="media-heading">
+              <h5>{{User.firstName}} {{User.lastName}}</h5>
+            </div>
+
+            <p>
+              {{body}}
+            </p>
+
+            <small class="pull-right text-muted">{{createdAt}}</small>
           </div>
+        </li>
 
-          <p>
-            {{body}}
-          </p>
+        <ul>
+          {{#Comments}}
+          <li class="media list-group-item p-a">
+            <a class="media-left" href="#">
+              <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+            </a>
+            <div class="media-body">
+              <div class="media-heading">
+                <h6>{{User.firstName}} {{User.lastName}}</h6>
+              </div>
+              <h4>I'm a comment!</h4>
+              <p>
+                {{body}}
+              </p>
 
-          <small class="pull-right text-muted">{{createdAt}}</small>
+              <small class="pull-right text-muted">{{createdAt}}</small>
+
+            </div>
+          </li>
+          {{/Comments}}
+        </ul>
       {{/each}}
     </ul>
     
