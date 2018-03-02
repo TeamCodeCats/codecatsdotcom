@@ -29,6 +29,7 @@ body {
 
 #logo-img {
     height: 80px;
+    width: 80px;
     position: absolute;
     top: 0px;
     float: left;
