@@ -49,4 +49,18 @@ module.exports = function(app) {
             res.json(dbPost);
         });
     });
+
+    app.post("/api/comment/", function(req, res) {
+        console.log("/api/comment call made");
+        db.Comment.create({
+            where: {
+                id: req.params.id
+            },
+            PostId: req.body.postId,
+            body: req.body.body,
+            UserId: req.body.userId
+        }).then(function(dbPost) {
+            res.json(dbPost);
+        });
+    });
 }

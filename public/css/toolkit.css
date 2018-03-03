@@ -7785,7 +7785,7 @@ fieldset[disabled] .btn-danger-outline.active {
   margin-right: 20px !important;
 }
 .m-b {
-  margin-bottom: 20px !important;
+  margin-bottom: 0px !important;
 }
 .m-l {
   margin-left: 20px !important;
@@ -7873,6 +7873,9 @@ fieldset[disabled] .btn-danger-outline.active {
 }
 .p-a {
   padding: 20px !important;
+}
+.p-a-2 {
+  padding: 10px !important;
 }
 .p-t {
   padding-top: 20px !important;
