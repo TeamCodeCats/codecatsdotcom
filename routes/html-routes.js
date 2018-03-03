@@ -45,7 +45,7 @@ module.exports = function(app) {
 	app.get("/profile/:id", function(req, res) {
 		db.Post.findAll({
 			where: {
-				id: req.params.id
+				UserId: req.params.id
 			},
 			include: [
 				db.User, 

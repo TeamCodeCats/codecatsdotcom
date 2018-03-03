@@ -18,7 +18,7 @@
             <a href="/index">Home</a>
           </li>
           <li>
-            <a href="/profile">Profile</a>
+            <a href="/profile/1">Profile</a>
           </li>
           <li>
             <a data-toggle="modal" href="#msgModal">Messages</a>
@@ -46,7 +46,7 @@
 
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
           <li><a href="index.html">Home</a></li>
-          <li><a href="profile/index.html">Profile</a></li>
+          <li><a href="profile/1">Profile</a></li>
           <li><a href="notifications/index.html">Notifications</a></li>
           <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
           <li><a href="docs/index.html">Docs</a></li>
@@ -210,10 +210,7 @@
           </div>
         </div>
       </li>
-    </ul>
-
-    <ul class="list-group media-list media-list-stream">
-
+    
       {{#hbPosts}}
       <li class="media list-group-item p-a">
         <a class="media-left" href="/profile/{{UserId}}">
