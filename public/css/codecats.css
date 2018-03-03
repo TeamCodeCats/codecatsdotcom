@@ -23,6 +23,10 @@ body {
     width: 115px;
 }
 
+#panel-body {
+    height: 50px;
+}
+
 #login-section {
     text-align: center;
 }

@@ -27,9 +27,6 @@
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li >
-            <a class="app-notifications" href="/index">
-              <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
-            </a>
           </li>
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
@@ -37,12 +34,6 @@
             </button>
           </li>
         </ul>
-
-        <form class="navbar-form navbar-right app-search" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" data-action="grow" placeholder="Search">
-          </div>
-        </form>
 
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
           <li><a href="index.html">Home</a></li>
@@ -67,37 +58,33 @@
 <div class="container-fuid">
   <div class="row">
     <div class="col-md-12">
-
-      <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-        <div class="panel-heading" id="profile-bg"></div>
-        <div class="panel-body text-center">
-          <a href="/profile/:"{{id}}>
-            {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
-            <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
-          {{!-- https://getavataaars.com/   for link to pop up in new window --}}
-          {{!-- on.click script to generate modal for upload image --}}
-          </a>
-          <h3 class="panel-title">
-            <a class="text-inherit" href="/profile/:">John Doe</a></h3>
-          <ul class="panel-menu">
-            <li class="panel-menu-item">
-              <a href="#userModal" class="text-inherit" data-toggle="modal">
-                Posts<h5 class="m-y-0">87</h5>
-        
-              </a>
-            </li>
-          </ul>
-        </div>
-          
-          {{!-- Modal --}}
-            <div class="container p-t-md">
-              <button id="triggerModal">Edit Profile</button>
-                <div id="profileModal" class="modal">
-                  <div class="modal-content">
-                    <span class="close">&times;></span>
-                        <p>Text here</p>
-                  </div>
-              </div>
+<div class="panel panel-default panel-profile m-b-sm" id="profile-box">
+      <div class="panel-heading" id="profile-bg"></div>
+      <div class="panel-body text-center">
+        <a href="/profile/:"{{id}}>
+          {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
+          <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
+        {{!-- https://getavataaars.com/   for link to pop up in new window --}}
+        {{!-- on.click script to generate modal for upload image --}}
+        </a>
+        <h3 class="panel-title">
+          <a class="text-inherit" href="/profile/:">John Doe</a></h3>
+        <ul class="panel-menu">
+          <li class="panel-menu-item">
+{{!-- ------------------------------------------------> SOCIAL MEDIA ICONS HERE --}}
+            </a>
+          </li>
+        </ul>
+      </div>
+        <br>
+        {{!-- Modal --}}
+          <div class="container p-t-md">
+            <button id="triggerModal">Edit Profile</button>
+              <div id="profileModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;></span>
+                      <p>Text here</p>
+                </div>
             </div>
     </div>
   </div>
