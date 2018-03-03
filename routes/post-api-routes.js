@@ -18,6 +18,9 @@ module.exports = function(app) {
                     model: db.Comment,
                     include: [ db.User]
                 }
+            ],
+            order: [
+                ['createdAt', 'DESC']
             ]
             }).then(function(dbPost) {
             res.json(dbPost);
@@ -32,7 +35,18 @@ module.exports = function(app) {
             },
             include: [db.User]
         }).then(function(dbPost) {
-          res.json(dbPost);
+            res.json(dbPost);
+        });
+    });
+
+    app.post("/api/posts/", function(req, res) {
+        console.log("/api/posts call made");
+        db.Post.create({
+            body: req.body.body,
+            postType: req.body.postType,
+            UserId: req.body.userId
+        }).then(function(dbPost) {
+            res.json(dbPost);
         });
     });
 }
