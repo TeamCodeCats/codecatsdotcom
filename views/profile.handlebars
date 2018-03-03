@@ -1,0 +1,267 @@
+<nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="/img/cat1.jpg" alt="brand" id="logo-img">
+      </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-collapse-main">
+
+        <ul class="nav navbar-nav hidden-xs">
+          <li class="active">
+            <a href="/index">Home</a>
+          </li>
+          <li>
+            <a href="/profile">Profile</a>
+          </li>
+          <li>
+            <a data-toggle="modal" href="#msgModal">Messages</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+          <li >
+            <a class="app-notifications" href="/index">
+              <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li>
+            <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
+              <img class="img-circle" src="http://via.placeholder.com/35x35">
+            </button>
+          </li>
+        </ul>
+
+        <form class="navbar-form navbar-right app-search" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" data-action="grow" placeholder="Search">
+          </div>
+        </form>
+
+        <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile/index.html">Profile</a></li>
+          <li><a href="notifications/index.html">Notifications</a></li>
+          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
+          <li><a href="docs/index.html">Docs</a></li>
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+    
+        
+        <ul class="nav navbar-nav hidden">
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+<body style="background-color:rgb(222, 241, 234);"></body>
+<div class="panel panel-default panel-profile m-b-sm" id="profile-box">
+      <div class="panel-heading" id="profile-bg"></div>
+      <div class="panel-body text-center">
+        <a href="/profile/:"{{id}}>
+          {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
+          <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
+        {{!-- https://getavataaars.com/   for link to pop up in new window --}}
+        {{!-- on.click script to generate modal for upload image --}}
+        </a>
+        <h3 class="panel-title">
+          <a class="text-inherit" href="/profile/:">John Doe</a></h3>
+        <ul class="panel-menu">
+          <li class="panel-menu-item">
+            <a href="#userModal" class="text-inherit" data-toggle="modal">
+              Posts<h5 class="m-y-0">87</h5>
+      
+            </a>
+          </li>
+        </ul>
+      </div>
+        
+        {{!-- Modal --}}
+          <div class="container p-t-md">
+            <button id="triggerModal">Edit Profile</button>
+              <div id="profileModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;></span>
+                      <p>Text here</p>
+                </div>
+            </div>
+          </div>
+
+<div class="container p-t-md">
+  <div class="col-md-3">
+
+    <div class="panel panel-default visible-md-block visible-lg-block">
+      <div class="panel-body">
+
+        <h5 class="m-t-0">About <small>· <a href="#">Edit</a></small></h5>
+          <p class="m-b-md truncate-text">Placeholder texty blurb from John Doe. This part should truncate if it goes beyond a certain length, but be fully viewable in their profile view.</p>
+          <hr>
+        <ul class="list-unstyled list-spaced">
+          <li><span class="text-muted glyphicon glyphicon-blackboard m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
+          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">Github</a>
+          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">San Francisco, CA</a>
+          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">Boston, MA</a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel-default visible-md-block visible-lg-block">
+      <div class="panel-body">
+        <h5 class="m-t-0">Photos <small>· <a href="#">Edit</a></small></h5>
+        <div data-grid="images" data-target-height="150">
+          <div class="row photo-row">
+            <div class="photo-grid">
+              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+            </div>
+
+            <div class="photo-grid">
+              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+            </div>
+          </div>
+          
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default visible-md-block visible-lg-block">
+      <div class="panel-body">
+        <h5 class="m-t-0">Study Groups <small>· <class="m-y-0">16 Groups</p>
+        <div data-grid="images" data-target-height="150">
+          <div class="row photo-row">
+            <div class="photo-grid">
+              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+            </div>
+
+            <div class="photo-grid">
+              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+            </div>
+          </div>
+          
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+          </div>
+
+          <div class="photo-grid">
+            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="col-md-8">
+
+    <ul class="list-group media-list media-list-stream">
+
+      <li class="media list-group-item p-a">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Message">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default">
+              <span class="icon icon-camera"></span>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="list-group media-list media-list-stream">
+
+      {{#each hbPosts}}
+        <li class="media list-group-item p-a">
+        <a class="media-left" href="#">
+          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+        </a>
+        <div class="media-body">
+          <div class="media-heading">
+            <h5>{{User.firstName}} {{User.lastName}}</h5>
+          </div>
+
+          <p>
+            {{body}}
+          </p>
+
+          <small class="pull-right text-muted">{{createdAt}}</small>
+      {{/each}}
+    </ul>
+    
+  </div>
+  {{!-- <div class="col-md-3">
+    <div class="row">
+      <div class="panel panel-default m-b-md hidden-xs">
+        <div class="panel-body">
+          <h5 class="m-t-0">Berkeley Coding Camp</h5> 
+          <div data-grid="images" data-target-height="150">
+            <img class="media-object" data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/245x230">
+          </div>
+          <p><strong>UCB October 2017 Hybrid Cohort.</strong></p>
+          <div id="faculty-list">
+            <p>
+              <a href="#">Jayson Phillips </a><i> - Instructor</i><br>
+              <a href="#">Daniel Cuperman </a><i> - T.Assistant</i><br>
+              <a href="#">George Yoo </a><i> - T.Assistant</i><br>
+            </p>
+          </div> 
+          
+          <p>Here is a main info section where our calendar (or at least upcoming classes/events) will go, plus any other pertinant information. Button below for adding new events (study groups, etc.)</p>
+          <button class="btn btn-primary-outline btn-sm">Add an Event</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="panel panel-default m-b-md hidden-xs">
+        <div class="panel-body">
+          <h5 class="m-t-0">Study Groups<small>· <a href="#">Create New Group</a></small></h5>
+          <div data-grid="images" data-target-height="150">
+            <div class="row photo-row">
+              <div class="photo-grid">
+                <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+              </div>
+
+              <div class="photo-grid">
+                <img data-width="640" data-height="640" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+  
+</div>

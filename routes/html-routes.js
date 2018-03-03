@@ -41,6 +41,9 @@ module.exports = function(app) {
 			res.render("index", hbsObject);		
 		});
 	});
+	app.get("/profile", function(req, res) {
+		res.render("profile");
+	});
 };
 
 
