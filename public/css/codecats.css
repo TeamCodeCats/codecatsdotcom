@@ -65,3 +65,7 @@ body {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
 }
+
+#triggerModal {
+    margin-left: 16px;
+}

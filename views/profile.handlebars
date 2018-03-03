@@ -18,7 +18,7 @@
             <a href="/index">Home</a>
           </li>
           <li>
-            <a href="/profile">Profile</a>
+            <a href="/profile/1">Profile</a>
           </li>
           <li>
             <a data-toggle="modal" href="#msgModal">Messages</a>
@@ -37,7 +37,7 @@
 
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
           <li><a href="index.html">Home</a></li>
-          <li><a href="profile/index.html">Profile</a></li>
+          <li><a href="profile/1">Profile</a></li>
           <li><a href="notifications/index.html">Notifications</a></li>
           <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
           <li><a href="docs/index.html">Docs</a></li>
@@ -197,11 +197,8 @@
           </div>
         </div>
       </li>
-    </ul>
-
-    <ul class="list-group media-list media-list-stream">
-
-      {{#hbPosts}}
+    
+      {{#posts}}
       <li class="media list-group-item p-a">
         <a class="media-left" href="/profile/{{UserId}}">
           <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
@@ -215,9 +212,9 @@
           </p>
             
         <ul class="media-list m-b">
-          {{#each Comments}}
+          {{#posts.Comments}}
           <li class="media">
-            <a class="media-left" href="/profile/{{UserID}}">
+            <a class="media-left" href="/profile/{{UserId}}">
               <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
             </a>
             <div class="media-body">
@@ -227,7 +224,7 @@
                 </p>
             </div>
           </li>
-          {{/each}}
+          {{/posts.Comments}}
           <li class="media list-group-item p-a-2">
             <div class="input-group">
               <input type="text" class="form-control" id="comment-body" data-postid="{{id}}" placeholder="Message">
@@ -241,7 +238,7 @@
         </ul>
         </div>
       </li>
-      {{/hbPosts}}
+      {{/posts}}
     </ul>
     
 </div>
