@@ -43,6 +43,17 @@ module.exports = function(app) {
 	});
 
 	app.get("/profile/:id", function(req, res) {
+
+		var hbsObject = {};
+
+		db.User.findOne({
+			where: {
+				id: req.params.id
+			}
+		}).then(users => {
+			hbsObject.user = users;
+		});
+
 		db.Post.findAll({
 			where: {
 				UserId: req.params.id
@@ -60,9 +71,8 @@ module.exports = function(app) {
 				['createdAt', 'DESC']
 			]
 			}).then(posts => {
-			var hbsObject = {
-				hbPosts: posts
-			}
+			hbsObject.posts = posts;
+
 			res.render("profile", hbsObject);
 		});
 	});

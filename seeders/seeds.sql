@@ -1,8 +1,8 @@
 USE codecats_db;
 
 -- Seed us some users!
-INSERT INTO users (firstname, lastname, username, googleId, createdAt, updatedAt) 
-VALUES ("Joe", "Faulstick", "jfaulstick", "1001", NOW(), NOW());
+INSERT INTO users (firstname, lastname, username, googleId, GitHubUrl, StackOverFlowUrl, LinkedInUrl, FacebookUrl, createdAt, updatedAt) 
+VALUES ("Joe", "Faulstick", "jfaulstick", "1001", "https://github.com/jfaulstick", "https://stackoverflow.com/users/8525028/joe-faulstick", "https://www.linkedin.com/in/joseph-faulstick/", "https://www.facebook.com/jfaulstick81", NOW(), NOW());
 INSERT INTO users (firstname, lastname, username, googleId, createdAt, updatedAt) 
 VALUES ("Danish", "Akhtar", "dakhtar", "1776", NOW(), NOW());
 

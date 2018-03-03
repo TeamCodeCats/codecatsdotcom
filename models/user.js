@@ -23,6 +23,22 @@ module.exports = function(sequelize, DataTypes) {
         },
 		googleID: {
             type: DataTypes.STRING
+        },
+        GitHubUrl: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        StackOverFlowUrl: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        LinkedInUrl: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        FacebookUrl: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
     
