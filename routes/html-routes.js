@@ -5,6 +5,8 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models");
+
 //var router = require("express").Router();
 
 // Adding a little piece of middleware to check if a user is logged in
@@ -17,6 +19,7 @@ var authCheck = function(req, res, next) {
 	}
 }
 
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -25,24 +28,78 @@ module.exports = function(app) {
 	});
 
 	app.get("/index", authCheck, function(req, res) {
-	    res.render("index", {user: req.user});
-	    console.log('sent the user');
+		console.log("Before the get attempt");
+		var query = {};
+        // if (req.query.user_id) {
+        //   query.UserId = req.query.user_id;
+        // }
+		db.Post.findAll({
+			where: query,
+			include: [
+                db.User, 
+                {
+                    model: db.Comment,
+                    include: [ db.User]
+                }
+			],
+			order: [
+                ['createdAt', 'DESC']
+            ]
+			}).then(posts => {
+			var hbsObject = {
+				hbPosts: posts,
+				user: req.user
+			}
+			// console.log(hbsObject);
+			// console.log(hbsObject.hbPosts[0].Comments[0].User);
+			res.render("index", hbsObject);		
+		});
 	});
 
+	app.get("/profile/:id", authCheck, function(req, res) {
+
+		var hbsObject = {};
+
+		db.User.findOne({
+			where: {
+				id: req.params.id
+			}
+		}).then(result => {
+			hbsObject.profile = result;
+		});
+
+		db.Post.findAll({
+			where: {
+				UserId: req.params.id
+			},
+			include: [
+				db.User, 
+				{
+					model: db.Comment,
+					include: [ 
+						db.User 
+					]
+				}
+			],
+			order: [
+				['createdAt', 'DESC']
+			]
+			}).then(posts => {
+			hbsObject.posts = posts;
+			hbsObject.user = req.user;
+
+			res.render("profile", hbsObject);
+		});
+	});
 };
 
 
-// Check with Jayson/Coop on how to make this work with a router instance
-// ======================================================================
-// module.exports = function(app) {
-// 	router.route('/')
-// 	.get(function(req, res) {
-// 	    res.render("landing");
-// 	});
 
-// 	router.route('/index')
-// 	.get(function(req, res) {
-// 	    res.render("index");
-// 	});
 
-// };
+
+
+
+
+
+
+

@@ -6455,13 +6455,6 @@ fieldset[disabled] .btn-danger-outline.active {
 .dropdown-menu > li > a {
   padding: 5px 20px;
 }
-@font-face {
-  font-family: "toolkit-entypo";
-  src: url('../fonts/toolkit-entypo.eot');
-  src: url('../fonts/toolkit-entypo.eot?#iefix') format('eot'), url('../fonts/toolkit-entypo.woff2') format('woff2'), url('../fonts/toolkit-entypo.woff') format('woff'), url('../fonts/toolkit-entypo.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 .icon:before {
   position: relative;
   top: 2px;
@@ -7792,7 +7785,7 @@ fieldset[disabled] .btn-danger-outline.active {
   margin-right: 20px !important;
 }
 .m-b {
-  margin-bottom: 20px !important;
+  margin-bottom: 0px !important;
 }
 .m-l {
   margin-left: 20px !important;
@@ -7880,6 +7873,9 @@ fieldset[disabled] .btn-danger-outline.active {
 }
 .p-a {
   padding: 20px !important;
+}
+.p-a-2 {
+  padding: 10px !important;
 }
 .p-t {
   padding-top: 20px !important;
