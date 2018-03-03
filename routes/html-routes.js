@@ -41,23 +41,29 @@ module.exports = function(app) {
 			res.render("index", hbsObject);		
 		});
 	});
-	app.get("/profile", function(req, res) {
-		res.render("profile");
+
+	app.get("/profile/:id", function(req, res) {
+		db.Post.findAll({
+			where: {
+				id: req.params.id
+			},
+			include: [
+				db.User, 
+				{
+					model: db.Comment,
+					include: [ 
+						db.User 
+					]
+				}
+			],
+			order: [
+				['createdAt', 'DESC']
+			]
+			}).then(posts => {
+			var hbsObject = {
+				hbPosts: posts
+			}
+			res.render("profile", hbsObject);
+		});
 	});
 };
-
-
-// Check with Jayson/Coop on how to make this work with a router instance
-// ======================================================================
-// module.exports = function(app) {
-// 	router.route('/')
-// 	.get(function(req, res) {
-// 	    res.render("landing");
-// 	});
-
-// 	router.route('/index')
-// 	.get(function(req, res) {
-// 	    res.render("index");
-// 	});
-
-// };
