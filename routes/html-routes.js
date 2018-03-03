@@ -22,13 +22,19 @@ module.exports = function(app) {
         }
 		db.Post.findAll({
 			where: query,
-			include: [db.User]
+			include: [
+                db.User, 
+                {
+                    model: db.Comment,
+                    include: [ db.User]
+                }
+            ]
 			}).then(posts => {
 			var hbsObject = {
 				hbPosts: posts
 			}
 			// console.log(hbsObject);
-			console.log(hbsObject.hbPosts[0]);
+			// console.log(hbsObject.hbPosts[0].Comments[0].User);
 			res.render("index", hbsObject);		
 		});
 	});
