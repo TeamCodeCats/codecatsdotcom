@@ -67,13 +67,13 @@
     <div class="panel panel-default panel-profile m-b-md">
       <div class="panel-heading" id="profile-bg"></div>
       <div class="panel-body text-center">
-        <a href="/profile/:"{{id}}>
+        <a href="/profile/{{user.id}}">
           <img class="panel-profile-img" src="http://via.placeholder.com/94x94">
         </a>
         <h5 class="panel-title">
-          <a class="text-inherit" href="/profile/:"{{id}}>John Doe</a>
+          <a class="text-inherit" href="/profile/{{user.id}}">{{user.username}}</a>
         </h5>
-        <p class="m-b-md">Placeholder texty blurb from John Doe.</p>
+        <p class="m-b-md">I was created at {{user.createdAt}}</p>
         <ul class="panel-menu">
           <li class="panel-menu-item">
             <a href="#userModal" class="text-inherit" data-toggle="modal">

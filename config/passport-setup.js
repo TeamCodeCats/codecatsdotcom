@@ -7,12 +7,12 @@ var db = require('../models');
 
 
 passport.serializeUser((user, done) => {
-	done(null, user.id);
+	done(null, user.id);	// if there is an error, send null - else, send in the user id
 });
 
 passport.deserializeUser((id, done) => {
 	db.User.findById(id).then((user) => {
-		done(null, user);
+		done(null, user);		// attaches the 'user' property to our req object
 	});
 });
 
@@ -35,12 +35,12 @@ passport.use(
 			if (currentUser) {
 				console.log('user is: ');
 				console.log(currentUser);
-				done(null, currentUser);
+				done(null, currentUser);	//send this user to the serializeUser method
 			}
 			else {
 				db.User.create({username: profile.displayName, googleID: profile.id}).then((newUser) => {
 					console.log('new user created: ' + newUser);
-					done(null, newUser);
+					done(null, newUser);	//send this user to the serializeUser method
 				});
 			}
 		});

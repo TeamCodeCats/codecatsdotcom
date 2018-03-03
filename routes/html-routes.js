@@ -7,6 +7,16 @@
 var path = require("path");
 //var router = require("express").Router();
 
+// Adding a little piece of middleware to check if a user is logged in
+var authCheck = function(req, res, next) {
+	if (!req.user) {
+		res.redirect('/auth/login');
+	}
+	else {
+		next();
+	}
+}
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -14,8 +24,9 @@ module.exports = function(app) {
 	    res.render("landing");
 	});
 
-	app.get("/index", function(req, res) {
-	    res.render("index");
+	app.get("/index", authCheck, function(req, res) {
+	    res.render("index", {user: req.user});
+	    console.log('sent the user');
 	});
 
 };

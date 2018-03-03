@@ -16,13 +16,15 @@ module.exports = function(app) {
 	
 	// Auth Login
 	app.get("/auth/login", (req, res) => {
-	    res.render("login");
+	    res.render("login", {user: req.user});
 	});
 
 	// Auth Logout
 	app.get('/auth/logout', (req, res) => {
 		// handle with passport
-		res.send('logging out');
+		//res.send('logging out');
+		req.logout();	//removes the userID from the cookie
+		res.redirect("/");
 	});
 
 	// Auth with Google
@@ -35,7 +37,9 @@ module.exports = function(app) {
 	// Google Redirect Callback Route
 	app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
 		//res.send('Reached callback URI');
-		res.json(req.user);
+		//res.json(req.user);
+		console.log(req.user);
+		res.redirect('/index');		//should redirect to '/profile/req.user.id'
 	});
 	
 };
