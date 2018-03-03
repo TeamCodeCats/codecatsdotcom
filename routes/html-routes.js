@@ -34,7 +34,7 @@ module.exports = function(app) {
 				hbPosts: posts
 			}
 			// console.log(hbsObject);
-			console.log(hbsObject.hbPosts[0].Comments[0].User);
+			// console.log(hbsObject.hbPosts[0].Comments[0].User);
 			res.render("index", hbsObject);		
 		});
 	});
