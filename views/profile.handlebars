@@ -64,37 +64,47 @@
 </nav>
 
 <body style="background-color:rgb(222, 241, 234);"></body>
-<div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-      <div class="panel-heading" id="profile-bg"></div>
-      <div class="panel-body text-center">
-        <a href="/profile/:"{{id}}>
-          {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
-          <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
-        {{!-- https://getavataaars.com/   for link to pop up in new window --}}
-        {{!-- on.click script to generate modal for upload image --}}
-        </a>
-        <h3 class="panel-title">
-          <a class="text-inherit" href="/profile/:">John Doe</a></h3>
-        <ul class="panel-menu">
-          <li class="panel-menu-item">
-            <a href="#userModal" class="text-inherit" data-toggle="modal">
-              Posts<h5 class="m-y-0">87</h5>
-      
-            </a>
-          </li>
-        </ul>
-      </div>
+<div class="container-fuid">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
+        <div class="panel-heading" id="profile-bg"></div>
+        <div class="panel-body text-center">
+          <a href="/profile/:"{{id}}>
+            {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
+            <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
+          {{!-- https://getavataaars.com/   for link to pop up in new window --}}
+          {{!-- on.click script to generate modal for upload image --}}
+          </a>
+          <h3 class="panel-title">
+            <a class="text-inherit" href="/profile/:">John Doe</a></h3>
+          <ul class="panel-menu">
+            <li class="panel-menu-item">
+              <a href="#userModal" class="text-inherit" data-toggle="modal">
+                Posts<h5 class="m-y-0">87</h5>
         
-        {{!-- Modal --}}
-          <div class="container p-t-md">
-            <button id="triggerModal">Edit Profile</button>
-              <div id="profileModal" class="modal">
-                <div class="modal-content">
-                  <span class="close">&times;></span>
-                      <p>Text here</p>
-                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+          
+          {{!-- Modal --}}
+            <div class="container p-t-md">
+              <button id="triggerModal">Edit Profile</button>
+                <div id="profileModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;></span>
+                        <p>Text here</p>
+                  </div>
+              </div>
             </div>
-          </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="container p-t-md">
   <div class="col-md-3">
@@ -186,7 +196,7 @@
 
 
 
-  <div class="col-md-8">
+  <div class="col-md-9">
 
     <ul class="list-group media-list media-list-stream">
 
@@ -195,7 +205,7 @@
           <input type="text" class="form-control" placeholder="Message">
           <div class="input-group-btn">
             <button type="button" class="btn btn-default">
-              <span class="icon icon-camera"></span>
+              <span class="glyphicon glyphicon-plus"></span>
             </button>
           </div>
         </div>
@@ -204,25 +214,50 @@
 
     <ul class="list-group media-list media-list-stream">
 
-      {{#each hbPosts}}
-        <li class="media list-group-item p-a">
-        <a class="media-left" href="#">
+      {{#hbPosts}}
+      <li class="media list-group-item p-a">
+        <a class="media-left" href="/profile/{{UserId}}">
           <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <h5>{{User.firstName}} {{User.lastName}}</h5>
+            <h5>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h5>
           </div>
-
           <p>
             {{body}}
           </p>
-
-          <small class="pull-right text-muted">{{createdAt}}</small>
-      {{/each}}
+            
+        <ul class="media-list m-b">
+          {{#each Comments}}
+          <li class="media">
+            <a class="media-left" href="/profile/{{UserID}}">
+              <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+            </a>
+            <div class="media-body">
+                <h6>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h6>
+                <p>
+                  {{body}}
+                </p>
+            </div>
+          </li>
+          {{/each}}
+          <li class="media list-group-item p-a-2">
+            <div class="input-group">
+              <input type="text" class="form-control" id="comment-body" data-postid="{{id}}" placeholder="Message">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default" id="comment-submit">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        </div>
+      </li>
+      {{/hbPosts}}
     </ul>
     
-  </div>
+</div>
   {{!-- <div class="col-md-3">
     <div class="row">
       <div class="panel panel-default m-b-md hidden-xs">

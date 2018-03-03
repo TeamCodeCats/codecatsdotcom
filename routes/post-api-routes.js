@@ -31,7 +31,7 @@ module.exports = function(app) {
         // GET route for only getting a specific userId's posts.
         db.Post.findOne({
             where: {
-            id: req.params.id
+            UserIs: req.params.id
             },
             include: [db.User]
         }).then(function(dbPost) {
