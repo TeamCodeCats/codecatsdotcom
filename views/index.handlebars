@@ -26,11 +26,11 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
-          <li >
+          {{!-- <li >
             <a class="app-notifications" href="/index">
               <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
             </a>
-          </li>
+          </li> --}}
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
               <img class="img-circle" src="http://via.placeholder.com/35x35">
@@ -131,9 +131,9 @@
 
       <li class="media list-group-item p-a">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Message">
+          <input type="text" class="form-control" id="post-body" placeholder="Message">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" id="post-submit">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </div>
@@ -167,6 +167,16 @@
             </div>
           </li>
           {{/each}}
+          <li class="media list-group-item p-a-2">
+            <div class="input-group">
+              <input type="text" class="form-control" id="comment-body" data-postid="{{id}}" placeholder="Message">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default" id="comment-submit">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </li>
         </ul>
         </div>
       </li>
@@ -196,3 +206,6 @@
     </div>
   </div>
 </div>
+
+<!-- Custom Script -->
+<script src="/js/post.js" type="text/javascript"></script>
