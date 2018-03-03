@@ -35,6 +35,12 @@ body {
     float: left;
 }
 
+#cohort-img {
+    height: 245px;
+    width: 230px;
+    border-radius: 5px;
+}
+
 .photo-row {
     margin: auto;
 }
