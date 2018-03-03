@@ -8,6 +8,10 @@ var express = require('express');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var keys = require('./config/keys');
+var cookieSession = require('cookie-session');
+var passportSetup = require('./config/passport-setup');
+var passport = require('passport');
+
 
 // Sets up the Express App
 // =============================================================
@@ -23,6 +27,16 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+// Use cookie-sessions - encrypt cookie, make sure its a day long max, then send it to the browser (all happens when the user is logged in)
+app.use(cookieSession({
+	maxAge: 24 * 60 * 60 * 1000,
+	keys: [keys.session.cookieKey]
+}));
+
+// Initialize Passport
+app.use(passport.initialize());	// middleware to initialize passport
+app.use(passport.session()); 	// use passport session cookies
+
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -36,8 +50,6 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Passport Authentication Setup
-var passportSetup = require('./config/passport-setup');
 
 // Routes
 // =============================================================

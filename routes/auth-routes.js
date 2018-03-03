@@ -28,13 +28,14 @@ module.exports = function(app) {
 	// Auth with Google
 	app.get('/auth/google', passport.authenticate('google', {
 
-		// What do we want to retrieve from the user's profile?
+		// What do we want to retrieve from the user's google+?
 		scope: ['profile']
 	}));
 
 	// Google Redirect Callback Route
 	app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
-		res.send('Reached callback URI');
+		//res.send('Reached callback URI');
+		res.json(req.user);
 	});
 	
 };
