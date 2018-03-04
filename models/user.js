@@ -39,6 +39,30 @@ module.exports = function(sequelize, DataTypes) {
         FacebookUrl: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        backgroundImgUrl: {
+            type: DataTypes.STRING,
+            defaultValue: "#FFFFFF"
+        },
+        profileImgUrl: {
+            type: DataTypes.STRING,
+            defaultValue: "/img/"
+        },
+        introMsg: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        employer: {
+            type: DataTypes.STRING,
+            defaultValue: "Unknown"
+        },
+        location: {
+            type: DataTypes.STRING,
+            defaultValue: "Unknown"
+        },
+        hometown: {
+            type: DataTypes.STRING,
+            defaultValue: "Unknown"
         }
     });
     
