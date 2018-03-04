@@ -1,61 +1,77 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Profile Editor</h4>
-      </div>
-      <div class="modal-body">
-        
-        <form>
-            <div class="input-group">
-                <input type="text" class="form-control" id="firstName" placeholder="First Name">
-                <br>
-                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-                <br>
-                <input type="text" class="form-control" id="employer" placeholder="Employer">
-                <br>
-                <input type="text" class="form-control" id="location" placeholder="Location">
-                <br>
-                <input type="text" class="form-control" id="hometown" placeholder="Hometown">
-                <br>
-                <input type="text" class="form-control" id="intro" placeholder="Brief Intro">
-            </div>
-
-            <div class="horizontal-scroll">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="image-select"><img id="cat-select" src="/img/cat2.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat4.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat6.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat8.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat10.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat12.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat14.jpg"/></div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Profile Editor</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <h4 class="profile-select-label">Basic Info</h4>
+                <div class="input-group" align="center">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        <input type="text" class="form-control" id="employer" placeholder="Employer">
                     </div>
-                    <div class="row">
-                        <div class="image-select"><img id="cat-select" src="/img/cat3.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat5.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat7.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat9.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat11.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat13.jpg"/></div>
-                        <div class="image-select"><img id="cat-select" src="/img/cat15.jpg"/></div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="location" placeholder="Location">
+                        <input type="text" class="form-control" id="hometown" placeholder="Hometown">
+                        <input type="text" class="form-control" id="intro" placeholder="Brief Intro">
                     </div>
-                    </select>
                 </div>
             </div>
-
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+            <hr>
+            <div class="row">
+                <h4 class="profile-select-label">Cat Picture</h4>
+                <div class="horizontal-scroll" id="cat-image-select">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <img class="cat-select image-select" src="/img/cat2.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat4.png"/>
+                            <img class="cat-select image-select" src="/img/cat6.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat8.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat10.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat12.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat14.jpg"/>
+                        </div>
+                        <div class="row">
+                            <img class="cat-select image-select" src="/img/cat3.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat5.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat7.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat9.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat11.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat13.jpg"/>
+                            <img class="cat-select image-select" src="/img/cat15.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="horizontal-scroll" id="bg-color-select"></div>
+                    <h4 class="profile-select-label">Background Color</h4>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="color-select pull-left" id="dark-turquoise" data-color="#00bcd4"></div>
+                            <div class="color-select pull-left" id="dark-slate-blue" data-color="#3f51b5"></div>
+                            <div class="color-select pull-left" id="dark-orchid" data-color="#9c27b0"></div>
+                            <div class="color-select pull-left" id="crimson" data-color="#e91e63"></div>
+                            <div class="color-select pull-left" id="chocolate" data-color="#db4437"></div>
+                            <div class="color-select pull-left" id="dark-orange" data-color="#ff9800"></div>
+                            <div class="color-select pull-left" id="light-green" data-color="#9afe66"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="navbar navbar-inverse navbar-fixed-top app-navbar">
