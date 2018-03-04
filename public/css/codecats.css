@@ -65,3 +65,8 @@ body {
 #triggerModal {
     margin-left: 16px;
 }
+
+.cat-select {
+    height: 80px;
+    width: 80px;
+}
