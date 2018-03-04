@@ -71,8 +71,14 @@
           <a class="text-inherit" href="/profile/:">John Doe</a></h3>
         <ul class="panel-menu">
           <li class="panel-menu-item">
-{{!-- ------------------------------------------------> SOCIAL MEDIA ICONS HERE --}}
-            </a>
+            <div class="entry">
+              {{if Username.Url}}
+                <h1>{{Username.GithubUrl}}</h1>
+                <h1>{{Username.StackOverflow}}</h1>
+                <h1>{{Username.LinkedInUrl</h1>
+                <h1>{{Username.FacebookUrl</h1>
+              {{/if}}
+            </div>            </a>
           </li>
         </ul>
       </div>
