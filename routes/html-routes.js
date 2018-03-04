@@ -7,6 +7,19 @@
 var path = require("path");
 var db = require("../models");
 
+//var router = require("express").Router();
+
+// Adding a little piece of middleware to check if a user is logged in
+var authCheck = function(req, res, next) {
+	if (!req.user) {
+		res.redirect('/auth/login');
+	}
+	else {
+		next();
+	}
+}
+
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -14,12 +27,12 @@ module.exports = function(app) {
 	    res.render("landing");
 	});
 
-	app.get("/index", function(req, res) {
+	app.get("/index", authCheck, function(req, res) {
 		console.log("Before the get attempt");
 		var query = {};
-        if (req.query.user_id) {
-          query.UserId = req.query.user_id;
-        }
+        // if (req.query.user_id) {
+        //   query.UserId = req.query.user_id;
+        // }
 		db.Post.findAll({
 			where: query,
 			include: [
@@ -34,7 +47,8 @@ module.exports = function(app) {
             ]
 			}).then(posts => {
 			var hbsObject = {
-				hbPosts: posts
+				hbPosts: posts,
+				user: req.user
 			}
 			// console.log(hbsObject);
 			// console.log(hbsObject.hbPosts[0].Comments[0].User);
@@ -42,7 +56,7 @@ module.exports = function(app) {
 		});
 	});
 
-	app.get("/profile/:id", function(req, res) {
+	app.get("/profile/:id", authCheck, function(req, res) {
 
 		var hbsObject = {};
 
@@ -50,8 +64,8 @@ module.exports = function(app) {
 			where: {
 				id: req.params.id
 			}
-		}).then(users => {
-			hbsObject.user = users;
+		}).then(result => {
+			hbsObject.profile = result;
 		});
 
 		db.Post.findAll({
@@ -72,8 +86,20 @@ module.exports = function(app) {
 			]
 			}).then(posts => {
 			hbsObject.posts = posts;
+			hbsObject.user = req.user;
 
 			res.render("profile", hbsObject);
 		});
 	});
 };
+
+
+
+
+
+
+
+
+
+
+
