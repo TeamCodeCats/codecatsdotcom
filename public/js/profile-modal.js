@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-    // Variables for storing the currently selected cat or color button.
+    // Variables for storing the currently selected cat or color
     var catSelected;
+    var catUrl;
     var colorSelected;
+    var colorCode;
 
     $('#modalButton').on('click', function () {
         $('#myModal').modal()
@@ -98,6 +100,7 @@ $(document).ready(function() {
         }
 
         catSelected = $(this).attr('id');
+        catUrl = $(this).data('source');
         $(this).css("border-color", "red");
         console.log(catSelected);
     });
@@ -109,7 +112,23 @@ $(document).ready(function() {
         }
 
         colorSelected = $(this).attr('id');
+        colorCode = $(this).data('color');
         $(this).css("border-color", "red");
         console.log(colorSelected);
+    });
+
+    $('#profileSubmit').on("click", function() {
+        var profileObject = {
+            firstName: $('#firstName').val().trim(),
+            lastName: $('#lastName').val().trim(),
+            employer: $('#employer').val().trim(),
+            location: $('#location').val().trim(),
+            hometown: $('#hometown').val().trim(),
+            intro: $('#intro').val().trim(),
+            profileUrl: catUrl,
+            bgColor: colorCode
+        };
+
+        console.log(profileObject);
     });
 });
