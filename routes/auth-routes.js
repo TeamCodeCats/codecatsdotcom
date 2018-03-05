@@ -39,7 +39,7 @@ module.exports = function(app) {
 		//res.send('Reached callback URI');
 		//res.json(req.user);
 		console.log(req.user);
-		res.redirect('/index');		//should redirect to '/profile/req.user.id'
+		res.redirect('/profile/' + req.user.id);		//should redirect to '/profile/req.user.id'
 	});
 	
 };
