@@ -121,7 +121,6 @@ module.exports = function(app) {
 			}).then(posts => {
 			hbsObject.posts = posts;
 			hbsObject.user = req.user;
-			console.log(hbsObject.posts[0].Comments);
 			res.render("profile", hbsObject);
 		});
 	});
