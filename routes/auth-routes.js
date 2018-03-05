@@ -38,7 +38,7 @@ module.exports = function(app) {
 	app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
 		//res.send('Reached callback URI');
 		//res.json(req.user);
-		console.log(req.user);
+		//console.log(req.user);
 		res.redirect('/profile/' + req.user.id);		//should redirect to '/profile/req.user.id'
 	});
 	
