@@ -1,14 +1,11 @@
-$(document).ready(function() {
-
-    // Variables for storing the currently selected cat or color
-    var catSelected;
+var catSelected;
     var catUrl;
     var colorSelected;
     var colorCode;
 
-    $('#modalButton').on('click', function () {
-        $('#myModal').modal()
-    });
+$(document).ready(function() {
+
+    // Variables for storing the currently selected cat or color
 
     $('.cat-select').hover(function() {
         // Check to see if a cat is already selected
@@ -100,9 +97,10 @@ $(document).ready(function() {
         }
 
         catSelected = $(this).attr('id');
-        catUrl = $(this).data('source');
+        catUrl = $(this).attr('src');
         $(this).css("border-color", "red");
         console.log(catSelected);
+        console.log(catUrl);
     });
 
     $('.color-select').on("click", function() {
@@ -112,23 +110,45 @@ $(document).ready(function() {
         }
 
         colorSelected = $(this).attr('id');
-        colorCode = $(this).data('color');
+        colorCode = $(this).data("color");
         $(this).css("border-color", "red");
         console.log(colorSelected);
+        console.log(colorCode);
+    });
+
+    $('#modalButton').on('click', function () {
+        $('#myModal').modal()
     });
 
     $('#profileSubmit').on("click", function() {
         var profileObject = {
+            id: userId,
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),
             employer: $('#employer').val().trim(),
             location: $('#location').val().trim(),
             hometown: $('#hometown').val().trim(),
-            intro: $('#intro').val().trim(),
-            profileUrl: catUrl,
-            bgColor: colorCode
+            introMsg: $('#intro').val().trim(),
+            profileImgUrl: catUrl,
+            backgroundColor: colorCode,
+            GitHubUrl: $('#github').val().trim(),
+            StackOverFlowUrl: $('#stackoverflow').val().trim(),
+            LinkedInUrl: $('#linkedin').val().trim(),
+            FacebookUrl: $('#facebook').val().trim()
         };
 
         console.log(profileObject);
+        updateProfile(profileObject)
+        $('#myModal').modal('toggle');
     });
+
+    function updateProfile(profileObject) {
+        $.ajax({
+            url: "/api/profile/update/",
+            method: "PUT",
+            data: profileObject
+        }).done(function(result) {
+           location.reload();
+        });
+    }
 });

@@ -48,7 +48,7 @@ $(document).ready(function() {
         console.log(newComment);
 
         submitComment(newComment);
-    })
+    });
 
     function submitPost(Post) {
         $.post("/api/posts/", Post, function() {
