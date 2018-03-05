@@ -111,7 +111,7 @@
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <h5>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h5>
+            <h5>{{User.firstName}} {{User.lastName}} {{User.username}} <small class="pull-right text-muted">{{createdAt}}</small></h5>
           </div>
           <p>
             {{body}}
@@ -124,7 +124,7 @@
               <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
             </a>
             <div class="media-body">
-                <h6>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h6>
+                <h6>{{User.firstName}} {{User.lastName}} {{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
                 <p>
                   {{body}}
                 </p>
@@ -185,7 +185,7 @@
 var userId;
 
 $(document).ready(function() {
-  if (userId) {
+  if (!userId) {
     $.ajax({
       url: "/auth/getuser",
       type: "GET"
@@ -194,7 +194,6 @@ $(document).ready(function() {
       userId = result;
     });
   }
-
 });
 
 </script>
