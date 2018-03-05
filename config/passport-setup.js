@@ -20,8 +20,8 @@ passport.use(
 	new GoogleStrategy({
 	// Options for Google strategy
 	callbackURL: '/auth/google/redirect',
-	clientID: keys.google.clientID,
-	clientSecret: keys.google.clientSecret
+	clientID: "735578450036-mdh70vg12pujb3gnck6shinq309cdnae.apps.googleusercontent.com",
+	clientSecret: "Sz6WlpeHV8VnmrrHqWFWtY4M"
 	}, (accessToken, refreshToken, profile, done) => {
 		// passport callback function
 		// this piece of code runs when Google sends back the 'user-code' to our app after the user allows access

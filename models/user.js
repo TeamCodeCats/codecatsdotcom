@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         backgroundColor: {
             type: DataTypes.STRING,
-            defaultValue: "#FFFFFF"
+            defaultValue: "#F5F5F5"
         },
         profileImgUrl: {
             type: DataTypes.STRING,

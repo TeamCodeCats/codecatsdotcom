@@ -53,35 +53,34 @@
 <div class="container-fuid">
     <div class="col-md-12">
       <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-        <div class="panel-heading" id="profile-bg"></div>
+        <div class="panel-heading" id="profile-bg" style:"background-color: {{user.backgrondColor}}"></div>
         <div class="panel-body text-center">
-          <a href="/profile/:"{{id}}>
-            {{!-- <img class="panel-profile-img" src="http://via.placeholder.com/94x94"> --}}
-            <img class="panel-profile-img" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFro&accessoriesType=Prescription02&hairColor=Platinum&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=PastelGreen&eyeType=Hearts&eyebrowType=Default&mouthType=Smile&skinColor=Black">
-          {{!-- https://getavataaars.com/   for link to pop up in new window --}}
-          {{!-- on.click script to generate modal for upload image --}}
+          <a href="/profile/:{{user.id}}">
+            
+            <img class="panel-profile-img" src="{{profileImgUrl}}">
+          
           </a>
           <h3 class="panel-title">
-            <a class="text-inherit" href="/profile/:">John Doe</a></h3>
+            <a class="text-inherit" href="/profile/:{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+          </h3>
           <ul class="panel-menu">
-            <li class="panel-menu-item">
-              <a href="#userModal" class="text-inherit" data-toggle="modal">
-                Posts<h5 class="m-y-0">87</h5>
-        
-              </a>
-            </li>
-          </ul>
-        </div>
-          
-        {{!-- Modal --}}
-        <div class="container p-t-md">
-          <button id="triggerModal">Edit Profile</button>
-            <div id="profileModal" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;></span>
-                    <p>Text here</p>
-              </div>
-          </div>
+          <li class="panel-menu-item">
+            <div class="entry">
+              {{#if user.GitHubUrl}}
+                <h1>{{user.GithubUrl}}</h1>
+              {{/if}}
+              {{#if user.StackOverFlowUrl}}
+                <h1>{{user.StackOverFlowUrl}}</h1>
+              {{/if}}
+              {{#if user.LinkedInUrl}}
+                <h1>{{user.LinkedInUrl</h1>
+              {{/if}}
+              {{#if user.FacebookUrl}}
+                <h1>{{user.FacebookUrl</h1>
+              {{/if}}
+            </div>
+          </li>
+        </ul>
         </div>
     </div>
 </div>
@@ -94,52 +93,18 @@
       <div class="panel-body">
 
         <h5 class="m-t-0">About <small>· <a href="#">Edit</a></small></h5>
-          <p class="m-b-md truncate-text">Placeholder texty blurb from John Doe. This part should truncate if it goes beyond a certain length, but be fully viewable in their profile view.</p>
+          <p class="m-b-md truncate-text">{{user.introMsg}}</p>
           <hr>
         <ul class="list-unstyled list-spaced">
           <li><span class="text-muted glyphicon glyphicon-blackboard m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
-          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">Github</a>
-          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">San Francisco, CA</a>
-          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">Boston, MA</a>
+          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">{{user.employer}}</a>
+          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">{{user.location}}</a>
+          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">{{user.hometown}}</a>
         </ul>
       </div>
     </div>
 
-    <div class="panel panel-default visible-md-block visible-lg-block">
-      <div class="panel-body">
-        <h5 class="m-t-0">Photos <small>· <a href="#">Edit</a></small></h5>
-        <div data-grid="images" data-target-height="150">
-          <div class="row photo-row">
-            <div class="photo-grid">
-              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-            </div>
-
-            <div class="photo-grid">
-              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-            </div>
-          </div>
-          
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default visible-md-block visible-lg-block">
+    {{!-- <div class="panel panel-default visible-md-block visible-lg-block">
       <div class="panel-body">
         <h5 class="m-t-0">Study Groups <small>· <class="m-y-0">16 Groups</p>
         <div data-grid="images" data-target-height="150">
@@ -171,7 +136,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 </div>
   
 
