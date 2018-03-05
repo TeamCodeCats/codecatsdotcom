@@ -185,7 +185,7 @@
 var userId;
 
 $(document).ready(function() {
-  if (userId) {
+  if (!userId) {
     $.ajax({
       url: "/auth/getuser",
       type: "GET"
@@ -194,7 +194,6 @@ $(document).ready(function() {
       userId = result;
     });
   }
-
 });
 
 </script>
