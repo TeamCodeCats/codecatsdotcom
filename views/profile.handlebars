@@ -13,10 +13,14 @@
                         <input type="text" class="form-control" id="firstName" placeholder="First Name">
                         <input type="text" class="form-control" id="lastName" placeholder="Last Name">
                         <input type="text" class="form-control" id="employer" placeholder="Employer">
-                    </div>
-                    <div class="col-md-6">
                         <input type="text" class="form-control" id="location" placeholder="Location">
                         <input type="text" class="form-control" id="hometown" placeholder="Hometown">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="github" placeholder="Github Url">
+                        <input type="text" class="form-control" id="stackoverflow" placeholder="StackOverFlow Url">
+                        <input type="text" class="form-control" id="linkedin" placeholder="LinkedIn Url">
+                        <input type="text" class="form-control" id="facebook" placeholder="Facebook Profile Url">
                         <input type="text" class="form-control" id="intro" placeholder="Brief Intro">
                     </div>
                 </div>
@@ -100,7 +104,7 @@
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="panel-comment-profile-img" src="{{user.profileImgUrl}}">
+              <img class="panel-comment-profile-img" id="my-profile-img" src="#">
             </button>
           </li>
         </ul>
@@ -109,10 +113,10 @@
 </nav>
 
 <body style="background-color:rgb(222, 241, 234);"></body>
-<div class="container-fuid">
+<div class="container-fluid">
     <div class="col-md-12">
       <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-        <div class="panel-heading" id="profile-bg" style:"background-color: {{user.backgroundColor}}"></div>
+        <div class="panel-heading" id="profile-bg" style="background-color: {{user.backgroundColor}}"></div>
         <div class="panel-body text-center">
           <a href="/profile/:{{user.id}}">
             
@@ -120,7 +124,9 @@
           
           </a>
           <h3 class="panel-title">
-            <a class="text-inherit" href="/profile/:{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+            <a class="text-inherit" href="/profile/:{{user.id}}">
+              {{user.username}}
+            </a>
           </h3>
           <ul class="panel-menu">
           {{!-- <li class="panel-menu-item">
@@ -263,6 +269,7 @@
 
 <!-- Custom Script -->
 <script src="/js/post.js" type="text/javascript"></script>
+<script src="/js/profile-modal.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 var userId;
@@ -275,6 +282,7 @@ $(document).ready(function() {
     }).done(function(result) {
       console.log(result);
       userId = result.id;
+      $("#my-profile-img").attr("src", result.profileImgUrl);
       $("#my-profile-img").attr("src", result.profileImgUrl);
     });
   }

@@ -45,7 +45,8 @@ module.exports = function(app) {
 	app.get('/auth/getuser', function(req, res) {
 		var userData = {
 			id: req.user.id,
-			profileImgUrl: req.user.profileImgUrl
+			profileImgUrl: req.user.profileImgUrl,
+			backgroundColor: req.user.backgroundColor
 		}
 		res.json(userData);
 	});
