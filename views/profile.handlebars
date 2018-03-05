@@ -97,7 +97,7 @@
             <a href="/index">Home</a>
           </li>
           <li>
-            <a href="/profile/" + user.id>Profile</a>
+            <a href="#" id="profile-link">Profile</a>
           </li>
         </ul>
 
@@ -275,17 +275,16 @@
 var userId;
 
 $(document).ready(function() {
-  if (!userId) {
-    $.ajax({
-      url: "/auth/getuser",
-      type: "GET"
-    }).done(function(result) {
-      console.log(result);
-      userId = result.id;
-      $("#my-profile-img").attr("src", result.profileImgUrl);
-      $("#my-profile-img").attr("src", result.profileImgUrl);
-    });
-  }
+  $.ajax({
+    url: "/auth/getuser",
+    type: "GET"
+  }).done(function(result) {
+    console.log(result);
+    userId = result.id;
+    profileUrl = "/profile/" + userId;
+    $("#my-profile-img").attr("src", result.profileImgUrl);
+    $("#profile-link").attr("href", profileUrl);
+  });
 });
 
 </script>
