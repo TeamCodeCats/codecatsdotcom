@@ -2,14 +2,14 @@ module.exports = function(sequelize, DataTypes) {
 	var User = sequelize.define("User", {
 		firstName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
 		lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         backgroundColor: {
             type: DataTypes.STRING,
-            defaultValue: "#FFFFFF"
+            defaultValue: "#F5F5F5"
         },
         profileImgUrl: {
             type: DataTypes.STRING,
@@ -69,7 +69,7 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         // Allows a User to have many Posts and Comments
         User.hasMany(models.Post, {
-          onDelete: "cascade"
+            onDelete: "cascade"
         });
 
         User.hasMany(models.Comment, {
