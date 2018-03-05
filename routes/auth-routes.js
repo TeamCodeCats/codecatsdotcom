@@ -43,6 +43,10 @@ module.exports = function(app) {
 	});
 
 	app.get('/auth/getuser', function(req, res) {
-		res.json(req.user.id);
+		var userData = {
+			id: req.user.id,
+			profileImgUrl: req.user.profileImgUrl
+		}
+		res.json(userData);
 	});
 };

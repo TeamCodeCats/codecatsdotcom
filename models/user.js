@@ -46,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         profileImgUrl: {
             type: DataTypes.STRING,
-            defaultValue: "/img/"
+            defaultValue: "/img/cat15.jpg"
         },
         introMsg: {
             type: DataTypes.STRING,
