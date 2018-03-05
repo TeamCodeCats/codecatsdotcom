@@ -100,26 +100,10 @@
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" src="http://via.placeholder.com/35x35">
+              <img class="panel-comment-profile-img" src="{{user.profileImgUrl}}">
             </button>
           </li>
         </ul>
-
-        {{!-- <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile/1">Profile</a></li>
-          <li><a href="notifications/index.html">Notifications</a></li>
-          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
-          <li><a href="docs/index.html">Docs</a></li>
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login/index.html">Logout</a></li>
-        </ul>
-    
-        
-        <ul class="nav navbar-nav hidden">
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login/index.html">Logout</a></li>
-        </ul> --}}
       </div>
   </div>
 </nav>
@@ -236,7 +220,7 @@
       {{#each posts}}
       <li class="media list-group-item p-a">
         <a class="media-left" href="/profile/{{User.id}}">
-          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+          <img class="panel-post-profile-img" src="{{User.profileImgUrl}}">
         </a>
         <div class="media-body">
           <div class="media-heading">
@@ -250,7 +234,7 @@
           {{#each Comments}}
           <li class="media">
             <a class="media-left" href="/profile/{{User.id}}">
-              <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+              <img class="panel-comment-profile-img" src="{{User.profileImgUrl}}">
             </a>
             <div class="media-body">
                 <h6>{{User.firstName}} {{User.lastName}} {{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
@@ -290,7 +274,8 @@ $(document).ready(function() {
       type: "GET"
     }).done(function(result) {
       console.log(result);
-      userId = result;
+      userId = result.id;
+      $("#my-profile-img").attr("src", result.profileImgUrl);
     });
   }
 });

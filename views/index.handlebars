@@ -30,7 +30,7 @@
           </li> --}}
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" src="http://via.placeholder.com/35x35">
+              <img class="panel-comment-profile-img" id="my-profile-img" src="#">
             </button>
           </li>
         </ul>
@@ -55,7 +55,27 @@
 <div class="container p-t-md">
   <div class="col-md-3">
 
-    <div class="panel panel-default visible-md-block visible-lg-block">
+    <div class="panel panel-default m-b-md hidden-xs">
+      <div class="panel-body">
+        <h5 class="m-t-0">Berkeley Coding Camp</h5>
+        <div data-grid="images" data-target-height="150">
+          <img class="media-object" id="cohort-img" data-width="640" data-height="640" data-action="zoom" src="/img/learn.jpg">
+        </div>
+        <p><strong>UCB October 2017 Hybrid Cohort.</strong></p>
+        <div id="faculty-list">
+          <p>
+            <a href="#">Jayson Phillips </a><i> - Instructor</i><br>
+            <a href="#">Daniel Cuperman </a><i> - T.Assistant</i><br>
+            <a href="#">George Yoo </a><i> - T.Assistant</i><br>
+          </p>
+        </div> 
+        
+        <p>Here is a main info section where our calendar (or at least upcoming classes/events) will go, plus any other pertinant information. Button below for adding new events (study groups, etc.)</p>
+        <button class="btn btn-primary-outline btn-sm">Add an Event</button>
+      </div>
+    </div>
+
+    {{!-- <div class="panel panel-default visible-md-block visible-lg-block">
       <div class="panel-body">
         <h5 class="m-t-0">Photos <small>· <a href="#">Edit</a></small></h5>
         <div data-grid="images" data-target-height="150">
@@ -87,9 +107,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
-  <div class="col-md-6">
+  <div class="col-md-9">
 
     <ul class="list-group media-list media-list-stream">
 
@@ -107,7 +127,7 @@
       {{#each hbPosts}}
       <li class="media list-group-item p-a">
         <a class="media-left" href="/profile/{{User.id}}">
-          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+          <img class="panel-post-profile-img" src="{{User.profileImgUrl}}">
         </a>
         <div class="media-body">
           <div class="media-heading">
@@ -121,7 +141,7 @@
           {{#each Comments}}
           <li class="media">
             <a class="media-left" href="/profile/{{User.id}}">
-              <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+              <img class="panel-comment-profile-img" src="{{User.profileImgUrl}}">
             </a>
             <div class="media-body">
                 <h6>{{User.firstName}} {{User.lastName}} {{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
@@ -148,34 +168,6 @@
     </ul>
     
   </div>
-  <div class="col-md-3">
-
-    <div class="panel panel-default m-b-md hidden-xs">
-      <div class="panel-body">
-        <h5 class="m-t-0">Open Discussions</h5>
-      </div>
-    </div>
-
-    <div class="panel panel-default m-b-md hidden-xs">
-      <div class="panel-body">
-        <h5 class="m-t-0">Berkeley Coding Camp</h5>
-        <div data-grid="images" data-target-height="150">
-          <img class="media-object" id="cohort-img" data-width="640" data-height="640" data-action="zoom" src="/img/learn.jpg">
-        </div>
-        <p><strong>UCB October 2017 Hybrid Cohort.</strong></p>
-        <div id="faculty-list">
-          <p>
-            <a href="#">Jayson Phillips </a><i> - Instructor</i><br>
-            <a href="#">Daniel Cuperman </a><i> - T.Assistant</i><br>
-            <a href="#">George Yoo </a><i> - T.Assistant</i><br>
-          </p>
-        </div> 
-        
-        <p>Here is a main info section where our calendar (or at least upcoming classes/events) will go, plus any other pertinant information. Button below for adding new events (study groups, etc.)</p>
-        <button class="btn btn-primary-outline btn-sm">Add an Event</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Custom Script -->
@@ -191,7 +183,8 @@ $(document).ready(function() {
       type: "GET"
     }).done(function(result) {
       console.log(result);
-      userId = result;
+      userId = result.id;
+      $("#my-profile-img").attr("src", result.profileImgUrl);
     });
   }
 });
