@@ -116,16 +116,16 @@
 <div class="container-fluid">
     <div class="col-md-12">
       <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-        <div class="panel-heading" id="profile-bg" style="background-color: {{user.backgroundColor}}"></div>
+        <div class="panel-heading" id="profile-bg" style="background-color: {{profile.backgroundColor}}"></div>
         <div class="panel-body text-center">
-          <a href="/profile/:{{user.id}}">
+          <a href="/profile/{{profile.id}}">
             
-            <img class="panel-profile-img" src="{{user.profileImgUrl}}">
+            <img class="panel-profile-img" src="{{profile.profileImgUrl}}">
           
           </a>
           <h3 class="panel-title">
-            <a class="text-inherit" href="/profile/:{{user.id}}">
-              {{user.username}}
+            <a class="text-inherit" href="/profile/:{{profile.id}}">
+              {{profile.username}}
             </a>
           </h3>
           <ul class="panel-menu">
@@ -161,13 +161,13 @@
           <button type="button" class="btn btn-primary btn-lg" id="modalButton">
             Edit
           </button></small></h5>
-          <p class="m-b-md truncate-text">{{user.introMsg}}</p>
+          <p class="m-b-md truncate-text">{{profile.introMsg}}</p>
           <hr>
         <ul class="list-unstyled list-spaced">
           <li><span class="text-muted glyphicon glyphicon-blackboard m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
-          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">{{user.employer}}</a>
-          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">{{user.location}}</a>
-          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">{{user.hometown}}</a>
+          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">{{profile.employer}}</a>
+          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">{{profile.location}}</a>
+          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">{{profile.hometown}}</a>
         </ul>
       </div>
     </div>
