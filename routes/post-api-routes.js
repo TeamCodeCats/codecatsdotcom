@@ -16,7 +16,10 @@ module.exports = function(app) {
                 db.User, 
                 {
                     model: db.Comment,
-                    include: [ db.User]
+                    include: [ db.User],
+                    order: [
+                        ['createdAt', 'DESC']
+                    ]
                 }
             ],
             order: [

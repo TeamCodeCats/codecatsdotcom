@@ -112,6 +112,9 @@ module.exports = function(app) {
 					model: db.Comment,
 					include: [ 
 						db.User 
+					],
+					order: [
+						['createdAt', 'DESC']
 					]
 				}
 			],
