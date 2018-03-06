@@ -65,3 +65,71 @@ body {
 #triggerModal {
     margin-left: 16px;
 }
+
+.cat-select {
+    height: 75px;
+    width: 75px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;   
+}
+
+.color-select {
+    height: 75px;
+    width: 75px;
+    border-style: solid;
+    border-width: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.profile-select-label {
+    text-align: center;
+}
+
+#dark-turquoise {
+    background-color: #00bcd4;
+}
+
+#dark-slate-blue {
+    background-color: #3f51b5;
+}
+
+#dark-orchid {
+    background-color: #9c27b0;
+}
+
+#crimson {
+    background-color: #e91e63;
+}
+
+#chocolate {
+    background-color: #db4437;
+}
+
+#dark-orange {
+    background-color: #ff9800;
+}
+
+#light-green {
+    background-color: #9afe66;
+}
+
+.profile-form {
+    list-style: none;
+}
+
+.horizontal-scroll {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#cat-image-select {
+    width: 100%;
+}
+

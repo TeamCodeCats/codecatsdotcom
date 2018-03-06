@@ -6,12 +6,12 @@ $(document).ready(function() {
     var postBodyInput = $("#post-body");
     // The below two are hardcoded placeholder for the moment
     var postTypeInput = "status-update";
-    var userIdInput = "1";
+    // var userIdInput = "1";
 
     var commentBodyInput = $("#comment-body");
     var commentPostId = $("#comment-body").data('postid');
     // The below two are hardcoded placeholder for the moment
-    var commentUserIdInput = "2";
+    // var commentUserIdInput = "2";
 
     $("#post-submit").on("click", function() {
         event.preventDefault();
@@ -23,7 +23,7 @@ $(document).ready(function() {
         var newPost = {
             body: postBodyInput.val().trim(),
             postType: postTypeInput,
-            userId: userIdInput
+            userId: userId
         }
 
         console.log(newPost);
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
         var newComment = {
             body: commentBodyInput.val().trim(),
-            userId: commentUserIdInput,
+            userId: userId,
             postId: commentPostId
         }
 

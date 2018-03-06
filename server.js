@@ -30,7 +30,8 @@ app.use(express.static("public"));
 // Use cookie-sessions - encrypt cookie, make sure its a day long max, then send it to the browser (all happens when the user is logged in)
 app.use(cookieSession({
 	maxAge: 24 * 60 * 60 * 1000,
-	keys: [keys.session.cookieKey]
+  keys: [keys.session.cookieKey],
+  httpOnly: false
 }));
 
 // Initialize Passport

@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         // Associating the Comment to a User and a Post
         Comment.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
 

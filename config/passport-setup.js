@@ -26,8 +26,8 @@ passport.use(
 		// passport callback function
 		// this piece of code runs when Google sends back the 'user-code' to our app after the user allows access
 
-		// console.log('passport cb fired');
-		// console.log(profile);
+		console.log('passport cb fired');
+		console.log(profile);
 
 		// Create a new User in Sequelize
 		// (CAN USE findOrCreate HERE)
@@ -44,8 +44,5 @@ passport.use(
 				});
 			}
 		});
-		
-
-
 	})
 )

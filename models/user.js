@@ -40,9 +40,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        backgroundImgUrl: {
+        backgroundColor: {
             type: DataTypes.STRING,
-            defaultValue: "#FFFFFF"
+            defaultValue: "#F5F5F5"
         },
         profileImgUrl: {
             type: DataTypes.STRING,
@@ -69,7 +69,7 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         // Allows a User to have many Posts and Comments
         User.hasMany(models.Post, {
-          onDelete: "cascade"
+            onDelete: "cascade"
         });
 
         User.hasMany(models.Comment, {

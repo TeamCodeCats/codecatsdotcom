@@ -27,14 +27,48 @@ module.exports = function(app) {
 	    res.render("landing");
 	});
 
-	app.get("/index", authCheck, function(req, res) {
+	app.get("/index/", authCheck, function(req, res) {
 		console.log("Before the get attempt");
+		// console.log(req.user);
 		var query = {};
         // if (req.query.user_id) {
         //   query.UserId = req.query.user_id;
         // }
 		db.Post.findAll({
 			where: query,
+			include: [
+                db.User, 
+                {
+                    model: db.Comment,
+                    include: [ db.User]
+                }
+			],
+			order: [
+                ['createdAt', 'DESC']
+            ]
+			}).then(posts => {
+			var hbsObject = {
+				hbPosts: posts,
+				user: req.user
+			}
+			// console.log(hbsObject);
+			// console.log(hbsObject.hbPosts[0].Comments[0].User);
+			// console.log(hbsObject);
+			res.render("index", hbsObject);		
+		});
+	});
+
+	app.get("/index/:id", authCheck, function(req, res) {
+		console.log("Before the get attempt");
+		// console.log(req.user);
+		var query = {};
+        // if (req.query.user_id) {
+        //   query.UserId = req.query.user_id;
+        // }
+		db.Post.findAll({
+			where: {
+				id: req.params.id
+			},
 			include: [
                 db.User, 
                 {
@@ -87,7 +121,7 @@ module.exports = function(app) {
 			}).then(posts => {
 			hbsObject.posts = posts;
 			hbsObject.user = req.user;
-
+			console.log(hbsObject);
 			res.render("profile", hbsObject);
 		});
 	});
