@@ -60,7 +60,7 @@ module.exports = function(app) {
             body: req.body.body,
             UserId: req.body.userId
         }).then(function(dbComment) {
-            console.log("Post created!");
+            console.log("Comment created!")
             res.json(dbComment);
         });
     });

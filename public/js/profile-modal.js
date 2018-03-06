@@ -116,7 +116,7 @@ $(document).ready(function() {
         console.log(colorCode);
     });
 
-    $('#modalButton').on('click', function () {
+    $('#my-profile-img').on('click', function () {
         $('#myModal').modal()
     });
 
