@@ -80,6 +80,20 @@ body {
     margin-bottom: 10px;
 }
 
+.panel-title {
+    margin-top: 10px;
+}
+
+#social-panel {
+    margin-top: 30px;
+}
+
+.social-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+}
+
 #profile-box {
     height: 365px;
 }

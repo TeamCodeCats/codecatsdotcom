@@ -128,24 +128,20 @@
               {{profile.username}}
             </a>
           </h3>
-          <ul class="panel-menu">
-          {{!-- <li class="panel-menu-item">
-            <div class="entry">
+            <div id="social-panel">
               {{#if user.GitHubUrl}}
-                <h1>{{user.GithubUrl}}</h1>
+                <a href="{{user.GithubUrl}}"><img class="social-img" src="/img/github.png"></a>
               {{/if}}
               {{#if user.StackOverFlowUrl}}
-                <h1>{{user.StackOverFlowUrl}}</h1>
+                <a href="{{user.StackOverFlowUrl}}"><img class="social-img" src="/img/stackoverflow.png"></a>
               {{/if}}
               {{#if user.LinkedInUrl}}
-                <h1>{{user.LinkedInUrl</h1>
+                <a href="{{user.LinkedInUrl}}"><img class="social-img" src="/img/linkedin.png"></a>
               {{/if}}
               {{#if user.FacebookUrl}}
-                <h1>{{user.FacebookUrl</h1>
+                <a href="{{user.FacebookUrl}}"><img class="social-img" src="/img/facebook.png"></a>
               {{/if}}
             </div>
-          </li> --}}
-        </ul>
         </div>
     </div>
 </div>
@@ -284,6 +280,16 @@ $(document).ready(function() {
     profileUrl = "/profile/" + userId;
     $("#my-profile-img").attr("src", result.profileImgUrl);
     $("#profile-link").attr("href", profileUrl);
+    $("#firstName").attr("placeholder", result.firstName);
+    $("#lastName").attr("placeholder", result.lastName);
+    $("#employer").attr("placeholder", result.employer);
+    $("#location").attr("placeholder", result.location);
+    $("#hometown").attr("placeholder", result.hometown);
+    $("#github").attr("placeholder", result.GitHubUrl);
+    $("#stackoverflow").attr("placeholder", result.StackOverFlowUrl);
+    $("#linkedin").attr("placeholder", result.LinkedInUrl);
+    $("#facebook").attr("placeholder", result.FacebookUrl);
+    $("#intro").attr("placeholder", result.introMsg);
   });
 });
 
