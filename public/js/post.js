@@ -8,8 +8,8 @@ $(document).ready(function() {
     var postTypeInput = "status-update";
     // var userIdInput = "1";
 
-    var commentBodyInput = $("#comment-body");
-    var commentPostId = $("#comment-body").data('postid');
+    // var commentBodyInput = $("#comment-body");
+    // var commentPostId = $("#comment-body").data('postid');
     // The below two are hardcoded placeholder for the moment
     // var commentUserIdInput = "2";
 
@@ -32,16 +32,20 @@ $(document).ready(function() {
 
     })
 
-    $("#comment-submit").on("click", function() {
+    $(".comment-submit").on("click", function() {
         event.preventDefault();
         // Wont submit the comment if we are missing a body
+        var postId = $(this).attr('id');
+        var commentBodyInput = $("#post-" + postId);
+        // var commentPostId = $("#post-" + postId).data('postid');
+
         if (!commentBodyInput.val().trim()) {
             return;
         }
 
         var newComment = {
             body: commentBodyInput.val().trim(),
-            postId: commentPostId,
+            postId: postId,
             userId: userId
         }
 
