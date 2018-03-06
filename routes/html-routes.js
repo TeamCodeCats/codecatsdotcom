@@ -42,12 +42,12 @@ module.exports = function(app) {
                     model: db.Comment,
 					include: [ db.User],
 					order: [
-						['createdAt', 'DESC']
+						[['createdAt', 'DESC']]
 					]
                 }
 			],
 			order: [
-                ['createdAt', 'DESC']
+                [['createdAt', 'DESC']]
             ]
 			}).then(posts => {
 			var hbsObject = {
@@ -78,12 +78,12 @@ module.exports = function(app) {
                     model: db.Comment,
 					include: [ db.User],
 					order: [
-						['createdAt', 'DESC']
+						[['createdAt', 'DESC']]
 					]
                 }
 			],
 			order: [
-                ['createdAt', 'DESC']
+                [['createdAt', 'DESC']]
             ]
 			}).then(posts => {
 			var hbsObject = {
@@ -120,12 +120,12 @@ module.exports = function(app) {
 						db.User 
 					],
 					order: [
-						['createdAt', 'DESC']
+						[['createdAt', 'DESC']]
 					]
 				}
 			],
 			order: [
-				['createdAt', 'DESC']
+				[['createdAt', 'DESC']]
 			]
 			}).then(posts => {
 			hbsObject.posts = posts;

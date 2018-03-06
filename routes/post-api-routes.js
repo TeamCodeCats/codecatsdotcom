@@ -18,12 +18,12 @@ module.exports = function(app) {
                     model: db.Comment,
                     include: [ db.User],
                     order: [
-                        ['createdAt', 'DESC']
+                        [['createdAt', 'DESC']]
                     ]
                 }
             ],
             order: [
-                ['createdAt', 'DESC']
+                [['createdAt', 'DESC']]
             ]
             }).then(function(dbPost) {
             res.json(dbPost);
@@ -36,7 +36,19 @@ module.exports = function(app) {
             where: {
             UserIs: req.params.id
             },
-            include: [db.User]
+            include: [
+                db.User,
+                {
+                    model: db.Comment,
+                    include: [ db.User],
+                    order: [
+                        [['createdAt', 'DESC']]
+                    ]
+                }
+            ],
+            order: [
+                [['createdAt', 'DESC']]
+            ]
         }).then(function(dbPost) {
             res.json(dbPost);
         });
