@@ -117,13 +117,13 @@
     <div class="panel panel-default panel-profile m-b-md">
       <div class="panel-heading" id="my-background-color" style="background-color: {{user.backgroundColor}}"></div>
       <div class="panel-body text-center">
-        <a href="profile/index.html">
+        <a href="profile/{{user.id}}">
           <img
             class="panel-profile-img" src="{{user.profileImgUrl}}">
         </a>
 
         <h5 class="panel-title">
-          <a class="text-inherit" href="profile/index.html">{{user.username}}</a>
+          <a class="text-inherit" href="profile/{{user.id}}">{{user.username}}</a>
         </h5>
 
         <p class="m-b-md">{{user.introMsg}}</p>
