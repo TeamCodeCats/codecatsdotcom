@@ -36,6 +36,10 @@ body {
     margin-left: 8px;
 }
 
+#my-profile-img {
+    margin-right: 16px;
+}
+
 .panel-profile-img {
     border-radius: 15%;
     border-top-left-radius: 15%;
@@ -70,6 +74,10 @@ body {
     border-radius: 5px;
 }
 
+.bootcamp-link {
+    font-weight: bold;
+}
+
 .photo-row {
     margin: auto;
 }
@@ -96,6 +104,8 @@ body {
 
 #profile-box {
     height: 365px;
+    margin-left: -36px;
+    margin-right: -36px;
 }
 
 .truncate-text {
