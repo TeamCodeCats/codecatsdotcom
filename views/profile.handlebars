@@ -280,6 +280,16 @@ $(document).ready(function() {
     profileUrl = "/profile/" + userId;
     $("#my-profile-img").attr("src", result.profileImgUrl);
     $("#profile-link").attr("href", profileUrl);
+    $("#firstName").attr("placeholder", result.firstName);
+    $("#lastName").attr("placeholder", result.lastName);
+    $("#employer").attr("placeholder", result.employer);
+    $("#location").attr("placeholder", result.location);
+    $("#hometown").attr("placeholder", result.hometown);
+    $("#github").attr("placeholder", result.GitHubUrl);
+    $("#stackoverflow").attr("placeholder", result.StackOverFlowUrl);
+    $("#linkedin").attr("placeholder", result.LinkedInUrl);
+    $("#facebook").attr("placeholder", result.FacebookUrl);
+    $("#intro").attr("placeholder", result.introMsg);
   });
 });
 
