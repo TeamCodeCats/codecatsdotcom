@@ -72,19 +72,19 @@ module.exports = function(app) {
 			where: {
 				id: req.params.id
 			},
+			order: [
+                ['createdAt', 'DESC']
+            ],
 			include: [
                 db.User, 
                 {
-                    model: db.Comment,
-					include: [ db.User],
+					model: db.Comment,
 					order: [
-						[['createdAt', 'DESC']]
-					]
+						['createdAt', 'DESC']
+					],
+					include: [ db.User]
                 }
-			],
-			order: [
-                [['createdAt', 'DESC']]
-            ]
+			]
 			}).then(posts => {
 			var hbsObject = {
 				hbPosts: posts,
@@ -112,20 +112,20 @@ module.exports = function(app) {
 			where: {
 				UserId: req.params.id
 			},
+			order: [
+				[['createdAt', 'DESC']]
+			],
 			include: [
 				db.User, 
 				{
 					model: db.Comment,
+					order: [
+						['createdAt', 'DESC']
+					],
 					include: [ 
 						db.User 
-					],
-					order: [
-						[['createdAt', 'DESC']]
 					]
 				}
-			],
-			order: [
-				[['createdAt', 'DESC']]
 			]
 			}).then(posts => {
 			hbsObject.posts = posts;
