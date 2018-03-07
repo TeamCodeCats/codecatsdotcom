@@ -43,7 +43,6 @@ module.exports = function(app) {
 					include: [ db.User],
 					// order: [
 					// 	[model.Comment, 'createdAt', 'DESC']
-					]
                 }
 			],
 			order: [
