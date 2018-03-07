@@ -29,31 +29,26 @@ module.exports = function(app) {
 
 	app.get("/index/", authCheck, function(req, res) {
 		console.log("Before the get attempt");
-		// console.log(req.user);
 		var query = {};
-        // if (req.query.user_id) {
-        //   query.UserId = req.query.user_id;
-        // }
 		db.Post.findAll({
 			where: query,
 			include: [
                 db.User, 
                 {
                     model: db.Comment,
-                    include: [ db.User]
+					include: [ db.User],
                 }
 			],
 			order: [
-                ['createdAt', 'DESC']
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
             ]
 			}).then(posts => {
 			var hbsObject = {
 				hbPosts: posts,
 				user: req.user
 			}
-			// console.log(hbsObject);
-			// console.log(hbsObject.hbPosts[0].Comments[0].User);
-			// console.log(hbsObject);
+
 			res.render("index", hbsObject);		
 		});
 	});
@@ -69,23 +64,23 @@ module.exports = function(app) {
 			where: {
 				id: req.params.id
 			},
+			order: [
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
+            ],
 			include: [
                 db.User, 
                 {
-                    model: db.Comment,
-                    include: [ db.User]
+					model: db.Comment,
+					include: [ db.User]
                 }
-			],
-			order: [
-                ['createdAt', 'DESC']
-            ]
+			]
 			}).then(posts => {
 			var hbsObject = {
 				hbPosts: posts,
 				user: req.user
 			}
-			// console.log(hbsObject);
-			// console.log(hbsObject.hbPosts[0].Comments[0].User);
+
 			res.render("index", hbsObject);		
 		});
 	});
@@ -106,17 +101,21 @@ module.exports = function(app) {
 			where: {
 				UserId: req.params.id
 			},
+			order: [
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
+            ],
 			include: [
 				db.User, 
 				{
 					model: db.Comment,
+					// order: [
+					// 	[model.Comment, 'createdAt', 'DESC']
+					// ],
 					include: [ 
 						db.User 
 					]
 				}
-			],
-			order: [
-				['createdAt', 'DESC']
 			]
 			}).then(posts => {
 			hbsObject.posts = posts;

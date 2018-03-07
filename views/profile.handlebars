@@ -104,7 +104,7 @@
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="panel-comment-profile-img" id="my-profile-img" src="#">
+              <img class="panel-comment-profile-img" id="my-profile-img" src="{{user.profileImgUrl}}">
             </button>
           </li>
         </ul>
@@ -128,24 +128,20 @@
               {{profile.username}}
             </a>
           </h3>
-          <ul class="panel-menu">
-          {{!-- <li class="panel-menu-item">
-            <div class="entry">
-              {{#if user.GitHubUrl}}
-                <h1>{{user.GithubUrl}}</h1>
+            <div id="social-panel">
+              {{#if profile.GitHubUrl}}
+                <a href="{{profile.GitHubUrl}}"><img class="social-img" src="/img/github.png"></a>
               {{/if}}
-              {{#if user.StackOverFlowUrl}}
-                <h1>{{user.StackOverFlowUrl}}</h1>
+              {{#if profile.StackOverFlowUrl}}
+                <a href="{{profile.StackOverFlowUrl}}"><img class="social-img" src="/img/stackoverflow.png"></a>
               {{/if}}
-              {{#if user.LinkedInUrl}}
-                <h1>{{user.LinkedInUrl</h1>
+              {{#if profile.LinkedInUrl}}
+                <a href="{{profile.LinkedInUrl}}"><img class="social-img" src="/img/linkedin.png"></a>
               {{/if}}
-              {{#if user.FacebookUrl}}
-                <h1>{{user.FacebookUrl</h1>
+              {{#if profile.FacebookUrl}}
+                <a href="{{profile.FacebookUrl}}"><img class="social-img" src="/img/facebook.png"></a>
               {{/if}}
             </div>
-          </li> --}}
-        </ul>
         </div>
     </div>
 </div>
@@ -157,10 +153,9 @@
     <div class="panel panel-default visible-md-block visible-lg-block">
       <div class="panel-body">
 
-        <h5 class="m-t-0">About <small>. </small>
-          <button type="button" class="btn btn-primary btn-lg" id="modalButton">
-            Edit
-          </button></small></h5>
+        <h5 class="m-t-0">
+          About<small>.</small>
+        </h5>
           <p class="m-b-md truncate-text">{{profile.introMsg}}</p>
           <hr>
         <ul class="list-unstyled list-spaced">
@@ -282,8 +277,17 @@ $(document).ready(function() {
     console.log(result);
     userId = result.id;
     profileUrl = "/profile/" + userId;
-    $("#my-profile-img").attr("src", result.profileImgUrl);
     $("#profile-link").attr("href", profileUrl);
+    $("#firstName").attr("value", result.firstName);
+    $("#lastName").attr("value", result.lastName);
+    $("#employer").attr("value", result.employer);
+    $("#location").attr("value", result.location);
+    $("#hometown").attr("value", result.hometown);
+    $("#github").attr("value", result.GitHubUrl);
+    $("#stackoverflow").attr("value", result.StackOverFlowUrl);
+    $("#linkedin").attr("value", result.LinkedInUrl);
+    $("#facebook").attr("value", result.FacebookUrl);
+    $("#intro").attr("value", result.introMsg);
   });
 });
 

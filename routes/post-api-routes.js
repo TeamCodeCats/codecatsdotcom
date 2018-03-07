@@ -12,15 +12,16 @@ module.exports = function(app) {
         }
         db.Post.findAll({
             where: query,
+            order: [
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
+            ],
             include: [
                 db.User, 
                 {
                     model: db.Comment,
-                    include: [ db.User]
+                    include: [ db.User],
                 }
-            ],
-            order: [
-                ['createdAt', 'DESC']
             ]
             }).then(function(dbPost) {
             res.json(dbPost);
@@ -33,7 +34,20 @@ module.exports = function(app) {
             where: {
             UserIs: req.params.id
             },
-            include: [db.User]
+            order: [
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
+            ],
+            include: [
+                db.User,
+                {
+                    model: db.Comment,
+                    // order: [
+                    //     [model.Comment, 'createdAt', 'DESC']
+                    // ],
+                    include: [ db.User],
+                }
+            ]
         }).then(function(dbPost) {
             res.json(dbPost);
         });
@@ -60,6 +74,7 @@ module.exports = function(app) {
             body: req.body.body,
             UserId: req.body.userId
         }).then(function(dbComment) {
+            console.log("Comment created!")
             res.json(dbComment);
         });
     });
