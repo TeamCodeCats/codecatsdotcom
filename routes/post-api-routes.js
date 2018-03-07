@@ -13,15 +13,13 @@ module.exports = function(app) {
         db.Post.findAll({
             where: query,
             order: [
-                ['createdAt', 'DESC']
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
             ],
             include: [
                 db.User, 
                 {
                     model: db.Comment,
-                    // order: [
-                    //     [model.Comment, 'createdAt', 'DESC']
-                    // ],
                     include: [ db.User],
                 }
             ]
@@ -37,7 +35,8 @@ module.exports = function(app) {
             UserIs: req.params.id
             },
             order: [
-                ['createdAt', 'DESC']
+				['createdAt', 'DESC'],
+				[db.Comment, 'createdAt', 'ASC']	
             ],
             include: [
                 db.User,
