@@ -23,7 +23,9 @@ module.exports = function(app) {
 	app.get('/auth/logout', (req, res) => {
 		// handle with passport
 		//res.send('logging out');
+		//console.log(req.session); 	//will show user id as -> {user: x}
 		req.logout();	//removes the userID from the cookie
+		//console.log(req.session);		//will show an empty object
 		res.redirect("/");
 	});
 
@@ -38,6 +40,10 @@ module.exports = function(app) {
 	app.get('/auth/google/redirect', passport.authenticate('google'), (req, res) => {
 		//res.send('Reached callback URI');
 		//res.json(req.user);
+
+		//console.log(req.user);
+		//res.redirect('/profile/' + req.user.id);		//should redirect to '/profile/req.user.id'
+
 		// console.log(req.user);
 		res.redirect('/index');		//should redirect to '/profile/req.user.id'
 	});
