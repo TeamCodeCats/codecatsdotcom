@@ -41,8 +41,8 @@ module.exports = function(app) {
                 {
                     model: db.Comment,
 					include: [ db.User],
-					order: [
-						[model.Comment, 'createdAt', 'DESC']
+					// order: [
+					// 	[model.Comment, 'createdAt', 'DESC']
 					]
                 }
 			],
@@ -79,9 +79,9 @@ module.exports = function(app) {
                 db.User, 
                 {
 					model: db.Comment,
-					order: [
-						[model.Comment, 'createdAt', 'DESC']
-					],
+					// order: [
+					// 	[sequelize.fn('max', sequelize.col('')),]
+					// ],
 					include: [ db.User]
                 }
 			]
@@ -119,9 +119,9 @@ module.exports = function(app) {
 				db.User, 
 				{
 					model: db.Comment,
-					order: [
-						[model.Comment, 'createdAt', 'DESC']
-					],
+					// order: [
+					// 	[model.Comment, 'createdAt', 'DESC']
+					// ],
 					include: [ 
 						db.User 
 					]

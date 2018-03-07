@@ -19,9 +19,9 @@ module.exports = function(app) {
                 db.User, 
                 {
                     model: db.Comment,
-                    order: [
-                        [model.Comment, 'createdAt', 'DESC']
-                    ],
+                    // order: [
+                    //     [model.Comment, 'createdAt', 'DESC']
+                    // ],
                     include: [ db.User],
                 }
             ]
@@ -43,9 +43,9 @@ module.exports = function(app) {
                 db.User,
                 {
                     model: db.Comment,
-                    order: [
-                        [model.Comment, 'createdAt', 'DESC']
-                    ],
+                    // order: [
+                    //     [model.Comment, 'createdAt', 'DESC']
+                    // ],
                     include: [ db.User],
                 }
             ]
