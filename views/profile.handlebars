@@ -99,6 +99,13 @@
           <li>
             <a href="#" id="profile-link">Profile</a>
           </li>
+
+          {{#if user}}
+          <li>
+           <a href="/auth/logout" id="profile-link">Logout</a>
+          </li>
+          {{/if}}
+          
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -125,7 +132,7 @@
           </a>
           <h3 class="panel-title">
             <a class="text-inherit" href="/profile/:{{profile.id}}">
-              {{profile.username}}
+              {{profile.firstName }} {{profile.lastName}} 
             </a>
           </h3>
             <div id="social-panel">

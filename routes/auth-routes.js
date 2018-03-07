@@ -23,7 +23,9 @@ module.exports = function(app) {
 	app.get('/auth/logout', (req, res) => {
 		// handle with passport
 		//res.send('logging out');
+		//console.log(req.session); 	//will show user id as -> {user: x}
 		req.logout();	//removes the userID from the cookie
+		//console.log(req.session);		//will show an empty object
 		res.redirect("/");
 	});
 
