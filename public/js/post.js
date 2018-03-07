@@ -41,14 +41,14 @@ $(document).ready(function() {
 
         var newComment = {
             body: commentBodyInput.val().trim(),
-            userId: userId,
-            postId: commentPostId
+            postId: commentPostId,
+            userId: userId
         }
 
         console.log(newComment);
 
         submitComment(newComment);
-    })
+    });
 
     function submitPost(Post) {
         $.post("/api/posts/", Post, function() {

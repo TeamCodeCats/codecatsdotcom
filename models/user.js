@@ -3,16 +3,10 @@ module.exports = function(sequelize, DataTypes) {
 		firstName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
 		lastName: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
 		username: {
             type: DataTypes.STRING,
@@ -46,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         profileImgUrl: {
             type: DataTypes.STRING,
-            defaultValue: "/img/"
+            defaultValue: "/img/cat15.jpg"
         },
         introMsg: {
             type: DataTypes.STRING,

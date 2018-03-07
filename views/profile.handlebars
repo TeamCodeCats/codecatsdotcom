@@ -13,10 +13,14 @@
                         <input type="text" class="form-control" id="firstName" placeholder="First Name">
                         <input type="text" class="form-control" id="lastName" placeholder="Last Name">
                         <input type="text" class="form-control" id="employer" placeholder="Employer">
-                    </div>
-                    <div class="col-md-6">
                         <input type="text" class="form-control" id="location" placeholder="Location">
                         <input type="text" class="form-control" id="hometown" placeholder="Hometown">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="github" placeholder="Github Url">
+                        <input type="text" class="form-control" id="stackoverflow" placeholder="StackOverFlow Url">
+                        <input type="text" class="form-control" id="linkedin" placeholder="LinkedIn Url">
+                        <input type="text" class="form-control" id="facebook" placeholder="Facebook Profile Url">
                         <input type="text" class="form-control" id="intro" placeholder="Brief Intro">
                     </div>
                 </div>
@@ -93,50 +97,36 @@
             <a href="/index">Home</a>
           </li>
           <li>
-            <a href="/profile/1">Profile</a>
+            <a href="#" id="profile-link">Profile</a>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" src="http://via.placeholder.com/35x35">
+              <img class="panel-comment-profile-img" id="my-profile-img" src="#">
             </button>
           </li>
         </ul>
-
-        {{!-- <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile/1">Profile</a></li>
-          <li><a href="notifications/index.html">Notifications</a></li>
-          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
-          <li><a href="docs/index.html">Docs</a></li>
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login/index.html">Logout</a></li>
-        </ul>
-    
-        
-        <ul class="nav navbar-nav hidden">
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login/index.html">Logout</a></li>
-        </ul> --}}
       </div>
   </div>
 </nav>
 
 <body style="background-color:rgb(222, 241, 234);"></body>
-<div class="container-fuid">
+<div class="container-fluid">
     <div class="col-md-12">
       <div class="panel panel-default panel-profile m-b-sm" id="profile-box">
-        <div class="panel-heading" id="profile-bg" style:"background-color: {{user.backgroundColor}}"></div>
+        <div class="panel-heading" id="profile-bg" style="background-color: {{profile.backgroundColor}}"></div>
         <div class="panel-body text-center">
-          <a href="/profile/:{{user.id}}">
+          <a href="/profile/{{profile.id}}">
             
-            <img class="panel-profile-img" src="{{user.profileImgUrl}}">
+            <img class="panel-profile-img" src="{{profile.profileImgUrl}}">
           
           </a>
           <h3 class="panel-title">
-            <a class="text-inherit" href="/profile/:{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+            <a class="text-inherit" href="/profile/:{{profile.id}}">
+              {{profile.username}}
+            </a>
           </h3>
           <ul class="panel-menu">
           {{!-- <li class="panel-menu-item">
@@ -171,13 +161,13 @@
           <button type="button" class="btn btn-primary btn-lg" id="modalButton">
             Edit
           </button></small></h5>
-          <p class="m-b-md truncate-text">{{user.introMsg}}</p>
+          <p class="m-b-md truncate-text">{{profile.introMsg}}</p>
           <hr>
         <ul class="list-unstyled list-spaced">
           <li><span class="text-muted glyphicon glyphicon-blackboard m-r"></span>Attended <a href="#">Berkeley Coding Camp</a>
-          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">{{user.employer}}</a>
-          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">{{user.location}}</a>
-          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">{{user.hometown}}</a>
+          <li><span class="text-muted glyphicon glyphicon-folder-close m-r"></span>Works at <a href="#">{{profile.employer}}</a>
+          <li><span class="text-muted glyphicon glyphicon-home m-r"></span>Lives in <a href="#">{{profile.location}}</a>
+          <li><span class="text-muted glyphicon glyphicon-map-marker m-r"></span>From <a href="#">{{profile.hometown}}</a>
         </ul>
       </div>
     </div>
@@ -236,11 +226,11 @@
       {{#each posts}}
       <li class="media list-group-item p-a">
         <a class="media-left" href="/profile/{{User.id}}">
-          <img class="media-object img-circle" src="http://via.placeholder.com/60x60">
+          <img class="panel-post-profile-img" src="{{User.profileImgUrl}}">
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <h5>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h5>
+            <h5>{{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h5>
           </div>
           <p>
             {{body}}
@@ -250,10 +240,10 @@
           {{#each Comments}}
           <li class="media">
             <a class="media-left" href="/profile/{{User.id}}">
-              <img class="media-object img-circle" src="http://via.placeholder.com/40x40">
+              <img class="panel-comment-profile-img" src="{{User.profileImgUrl}}">
             </a>
             <div class="media-body">
-                <h6>{{User.firstName}} {{User.lastName}} <small class="pull-right text-muted">{{createdAt}}</small></h6>
+                <h6>{{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
                 <p>
                   {{body}}
                 </p>
@@ -279,20 +269,22 @@
 
 <!-- Custom Script -->
 <script src="/js/post.js" type="text/javascript"></script>
+<script src="/js/profile-modal.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 var userId;
 
 $(document).ready(function() {
-  if (!userId) {
-    $.ajax({
-      url: "/auth/getuser",
-      type: "GET"
-    }).done(function(result) {
-      console.log(result);
-      userId = result;
-    });
-  }
+  $.ajax({
+    url: "/auth/getuser",
+    type: "GET"
+  }).done(function(result) {
+    console.log(result);
+    userId = result.id;
+    profileUrl = "/profile/" + userId;
+    $("#my-profile-img").attr("src", result.profileImgUrl);
+    $("#profile-link").attr("href", profileUrl);
+  });
 });
 
 </script>

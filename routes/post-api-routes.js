@@ -54,13 +54,49 @@ module.exports = function(app) {
         console.log("/api/comment call made");
         db.Comment.create({
             where: {
-                id: req.params.id
+                UserIs: req.params.id
             },
             PostId: req.body.postId,
             body: req.body.body,
             UserId: req.body.userId
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbComment) {
+            res.json(dbComment);
+        });
+    });
+
+    app.put("/api/profile/update/", function(req, res) {
+        console.log("Updating profile");
+        console.log(req.body.id); 
+        db.User.update(req.body, { 
+            where: {
+                id: req.body.id
+            }
+       
+        //     selector,
+        //     firstName: req.params.firstName,
+        //     lastName: req.params.lastName,
+        //     employer: req.params.employer,
+        //     location: req.params.location,
+        //     hometown: req.params.hometown,
+        //     introMsg: req.params.intro,
+        //     profileImgUrl: req.params.profileUrl,
+        //     backgroundColor: req.params.bgColor,
+        //     GitHubUrl: req.params.GitHubUrl,
+        //     StackOverFlowUrl: req.params.StackOverFlowUrl,
+        //     LinkedInUrl: req.params.LinkedInUrl,
+        //     FacebookUrl: req.params.FacebookUrl
+        }).then(function(dbUser) {
+            // res.json(dbUser);
+            res.json(dbUser);
         });
     });
 }
+
+// firstName: $('#firstName').val().trim(),
+// lastName: $('#lastName').val().trim(),
+// employer: $('#employer').val().trim(),
+// location: $('#location').val().trim(),
+// hometown: $('#hometown').val().trim(),
+// intro: $('#intro').val().trim(),
+// profileUrl: catUrl,
+// bgColor: colorCode
