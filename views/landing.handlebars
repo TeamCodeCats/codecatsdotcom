@@ -1,3 +1,8 @@
+<style type="text/css">
+    .glyphicon {
+        font-size: 25px;
+    }
+</style>
 <div class="navbar navbar-inverse navbar-fixed-top app-navbar">
     <div class="container">
         <div class="navbar-header">
@@ -9,26 +14,63 @@
 </div>
 
 <div class="landing-container-fluid">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6" id="login-section">
-            <div class="row">
-                <a href="/auth/signup" class="landing-link">Sign Up</a>
-            </div>
-            <br>
-            <div class="row">
-                <a href="/auth/login" class="landing-link">Login</a>
-            </div>
-            <div class="row">
-                <a href="/auth/logout" class="landing-link">Logout</a>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" id="modalButton">
-            Launch demo modal
-            </button>
+        <div class="col-md-5" id="login-logo">
+            <img src="/img/cat1.jpg" width="300px" height="400px">
         </div>
-        <div class="col-md-3"></div>
-    </div>
+        <div class="col-md-5">
+            <div class="panel panel-fluid">
+                <h1>Welcome CodeCats!</h1>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h3>Built for UC Berkeley Extension's Coding Bootcamp!</h3>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-2 ">
+                            <img id="user-logo-icon" src="/img/57162.svg" width="25px" height="25px">
+                        </div>
+                        <div class="col-md-10">
+                            <p class="features">Setup personalized user profiles</p>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        <span id="flash-logo-icon" class="glyphicon glyphicon-flash"></span>
+                    </div>
+                    <div class="col-md-7">
+                        <p class="features">Instantly share with everyone</p>
+                    </div>
+                </div>
+                
+                <br>
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        <i id="retweet-logo-icon" class="glyphicon glyphicon-retweet"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="features">Stay connected with the rest of the cohort</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                            <a type="button" href="/auth/google"><img id="google-logo-icon" src="/img/google_plus.svg"></a>
+                    </div>
+                </div>
+
+                <br>
+            </div>
+        </div>
+        
 </div>
 
 <!-- Custom Script -->
