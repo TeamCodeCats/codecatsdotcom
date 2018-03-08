@@ -186,3 +186,24 @@ body {
     width: 100%;
 }
 
+.features {
+    font-size: 20px;
+}
+
+#user-logo-icon {
+    position: relative;
+    /*top: 10px;*/
+    left: 20px;
+}
+
+#flash-logo-icon {
+    position: relative;
+    /*top: 10px;*/
+    left: 25px;
+}
+
+#retweet-logo-icon {
+    position: relative;
+    /*top: 10px;*/
+    left: 25px;
+}
