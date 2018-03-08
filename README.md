@@ -1,2 +1,2 @@
 # codecatsdotcom
-Project #2 from Berkeley Coding Camp
+[https://github.com/TeamCodeCats/codecatsdotcom](https://github.com/TeamCodeCats/codecatsdotcom)
