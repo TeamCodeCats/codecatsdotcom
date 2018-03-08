@@ -23,7 +23,7 @@ $(document).ready(function() {
         var newPost = {
             body: postBodyInput.val().trim(),
             postType: postTypeInput,
-            userId: userId
+            userId: userId````
         }
 
         console.log(newPost);

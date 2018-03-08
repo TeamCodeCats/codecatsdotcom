@@ -48,15 +48,15 @@ module.exports = function(sequelize, DataTypes) {
         },
         employer: {
             type: DataTypes.STRING,
-            defaultValue: "Unknown"
+            allowNull: true,
         },
         location: {
             type: DataTypes.STRING,
-            defaultValue: "Unknown"
+            allowNull: true,
         },
         hometown: {
             type: DataTypes.STRING,
-            defaultValue: "Unknown"
+            allowNull: true,
         }
     });
     
