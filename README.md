@@ -1,7 +1,7 @@
 # Code Cats
 By Alyna Takeuchi, Danish Akhtar, Joe Faulstick, and Leon Moraga
 
-[https://github.com/TeamCodeCats/codecatsdotcom](https://github.com/TeamCodeCats/codecatsdotcom
+[https://github.com/TeamCodeCats/codecatsdotcom](https://github.com/TeamCodeCats/codecatsdotcom)
 
 ## Description
 Code Cats was the second major project created as part of the Berkeley Coding Cohort. Code Cats was designed to serve as a social media application that targets boot camp students and graduates to enable them to stay connected outside of the class room. 
