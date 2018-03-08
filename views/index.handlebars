@@ -130,7 +130,12 @@
         </a>
 
         <h5 class="panel-title">
-          <a class="text-inherit" href="profile/{{user.id}}">{{user.username}}</a>
+          <a class="text-inherit" href="profile/{{user.id}}">
+            {{#if user.firstName}}
+              {{user.firstName}} {{user.lastName}}
+            {{else}}
+              {{user.username}}
+            {{/if}}</a>
         </h5>
 
         <p class="m-b-md">{{user.introMsg}}</p>
@@ -180,7 +185,14 @@
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <h5>{{User.username}} <small class="pull-right text-muted">{{createdAt}}</small></h5>
+            <h5>
+              {{#if User.firstName}}
+                {{User.firstName}} {{User.lastName}}
+              {{else}}
+                {{User.username}}
+              {{/if}}
+              <small class="pull-right text-muted">{{createdAt}}</small>
+            </h5>
           </div>
           <p>
             {{body}}
@@ -193,7 +205,14 @@
               <img class="panel-comment-profile-img" src="{{User.profileImgUrl}}">
             </a>
             <div class="media-body">
-                <h6>{{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
+                <h6>
+                  {{#if User.firstName}}
+                    {{User.firstName}} {{User.lastName}}
+                  {{else}}
+                    {{User.username}}
+                  {{/if}}
+                  <small class="pull-right text-muted">{{createdAt}}</small>
+                </h6>
                 <p>
                   {{body}}
                 </p>

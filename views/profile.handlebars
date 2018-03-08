@@ -132,7 +132,11 @@
           </a>
           <h3 class="panel-title">
             <a class="text-inherit" href="/profile/:{{profile.id}}">
-              {{profile.username}}
+              {{#if profile.firstName}}
+                {{profile.firstName}} {{profile.lastName}}
+              {{else}}
+                {{profile.username}}
+              {{/if}}
             </a>
           </h3>
             <div id="social-panel">
@@ -173,40 +177,6 @@
         </ul>
       </div>
     </div>
-
-    {{!-- <div class="panel panel-default visible-md-block visible-lg-block">
-      <div class="panel-body">
-        <h5 class="m-t-0">Study Groups <small>· <class="m-y-0">16 Groups</p>
-        <div data-grid="images" data-target-height="150">
-          <div class="row photo-row">
-            <div class="photo-grid">
-              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-            </div>
-
-            <div class="photo-grid">
-              <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-            </div>
-          </div>
-          
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-          </div>
-
-          <div class="photo-grid">
-            <img data-width="740" data-height="740" data-action="zoom" src="http://via.placeholder.com/117x118"><figcaption><center><small><a href="#">Group Name</a></small></center></figcaption>
-          </div>
-        </div>
-      </div>
-    </div> --}}
 </div>
   
 
@@ -232,7 +202,14 @@
         </a>
         <div class="media-body">
           <div class="media-heading">
-            <h5>{{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h5>
+            <h5>
+              {{#if User.firstName}}
+                {{User.firstName}} {{User.lastName}}
+              {{else}}
+                {{User.username}}
+              {{/if}}
+              <small class="pull-right text-muted">{{createdAt}}</small>
+            </h5>
           </div>
           <p>
             {{body}}
@@ -245,7 +222,14 @@
               <img class="panel-comment-profile-img" src="{{User.profileImgUrl}}">
             </a>
             <div class="media-body">
-                <h6>{{User.username}}<small class="pull-right text-muted">{{createdAt}}</small></h6>
+                <h6>
+                  {{#if User.firstName}}
+                    {{User.firstName}} {{User.lastName}}
+                  {{else}}
+                    {{User.username}}
+                  {{/if}}
+                  <small class="pull-right text-muted">{{createdAt}}</small>
+                </h6>
                 <p>
                   {{body}}
                 </p>
