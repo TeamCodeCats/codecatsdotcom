@@ -1,5 +1,6 @@
 # Code Cats
 By Alyna Takeuchi, Danish Akhtar, Joe Faulstick, and Leon Moraga
+
 [https://github.com/TeamCodeCats/codecatsdotcom](https://github.com/TeamCodeCats/codecatsdotcom
 
 ## Description
@@ -40,7 +41,6 @@ module.exports = {
 	}
 }
 ```
-
 
 ### How To Use
 
