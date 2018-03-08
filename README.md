@@ -25,11 +25,12 @@ Follow the instructions below to install a local version of Code Cats.
 #### Google OAuth & Cookie Session
 1. Create a new Google project at [https://console.developers.google.com](https://console.developers.google.com).
 2. Create new credentials to generate a **client secret** and **client id**.
-3. From the credentials screen, click on your project name and add *http://localhost:3000/auth/google/redirect* and *https://localhost:3000/auth/google/redirect* to the Authorized redirect URIs
+3. From the credentials screen, click on your project name and add *(http://localhost:3000/auth/google/redirect)* and *(https://localhost:3000/auth/google/redirect)* to the Authorized redirect URIs
 4. Back in your project, navigate to your config folder and create a new file called **keys.js**.
 5. In **keys.js** add the following code. Fill in your own **client secret**, **client id** and custom session key.
 
-`module.exports = {
+```javascript
+module.exports = {
 	google: {
 		clientID: <clientID here>,
 		clientSecret: <clientSecret here>
@@ -37,7 +38,8 @@ Follow the instructions below to install a local version of Code Cats.
 	session: {
 		cookieKey: <Custom key here>
 	}
-}`
+}
+```
 
 
 ### How To Use
