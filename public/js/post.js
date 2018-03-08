@@ -1,17 +1,8 @@
 $(document).ready(function() {
-    /* global moment */
 
     // Set global variables to store form data
-
     var postBodyInput = $("#post-body");
-    // The below two are hardcoded placeholder for the moment
     var postTypeInput = "status-update";
-    // var userIdInput = "1";
-
-    // var commentBodyInput = $("#comment-body");
-    // var commentPostId = $("#comment-body").data('postid');
-    // The below two are hardcoded placeholder for the moment
-    // var commentUserIdInput = "2";
 
     $("#post-submit").on("click", function() {
         event.preventDefault();
@@ -23,14 +14,20 @@ $(document).ready(function() {
         var newPost = {
             body: postBodyInput.val().trim(),
             postType: postTypeInput,
-            userId: userId````
+            userId: userId
         }
 
         console.log(newPost);
 
         submitPost(newPost);
 
-    })
+    });
+
+    $("#post-body").keydown(function (e) {
+        if (e.keyCode == 13) {
+            $("#post-submit").click();
+        }
+    });
 
     $(".comment-submit").on("click", function() {
         event.preventDefault();
@@ -52,6 +49,12 @@ $(document).ready(function() {
         console.log(newComment);
 
         submitComment(newComment);
+    });
+
+    $(".comment-body").keydown(function (e) {
+        if (e.keyCode == 13) {
+            $(".comment-submit").click();
+        }
     });
 
     function submitPost(Post) {

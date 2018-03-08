@@ -169,9 +169,9 @@
 
       <li class="media list-group-item p-a">
         <div class="input-group">
-          <input type="text" class="form-control" id="post-body" placeholder="Message">
+          <input type="text" class="form-control post-body-class" id="post-body" placeholder="Message">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default" id="post-submit">
+            <button type="button" class="btn btn-default post-button" id="post-submit">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
           </div>
@@ -221,7 +221,7 @@
           {{/each}}
           <li class="media list-group-item p-a-2">
             <div class="input-group">
-              <input type="text" class="form-control" id="post-{{id}}" data-postid="{{id}}" placeholder="Message">
+              <input type="text" class="form-control comment-body" id="post-{{id}}" data-postid="{{id}}" placeholder="Message">
               <div class="input-group-btn">
                 <button type="button" class="btn btn-default comment-submit" id="{{id}}">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
