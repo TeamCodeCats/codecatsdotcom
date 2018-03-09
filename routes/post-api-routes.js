@@ -105,6 +105,15 @@ module.exports = function(app) {
             res.json(dbUser);
         });
     });
+
+    app.get("*", function(req, res) {
+        if (req.user) {
+            res.redirect("/index");
+        }
+        else {
+            res.redirect("/");
+        }
+    });
 }
 
 // firstName: $('#firstName').val().trim(),
